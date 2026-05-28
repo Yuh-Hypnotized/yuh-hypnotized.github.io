@@ -1,103 +1,35 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yuh Hypnotized | 个人主页</title>
-  <meta name="description" content="Yuh Hypnotized 的个人主页" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>个人主页</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <style>
+    .hero-body {
+      background-color: #f5f5f5;
+    }
+    .hero-is-primary {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .hero-is-small {
+      height: 200px;
+    }
+  </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="hero">
-      <nav class="topbar">
-        <div class="brand">Yuh Hypnotized</div>
-        <div class="nav-links">
-          <a href="#about">关于</a>
-          <a href="#skills">技能</a>
-          <a href="#contact">联系</a>
-        </div>
-      </nav>
-
-      <section class="hero-content">
-        <div class="hero-copy">
-          <p class="eyebrow">个人主页 / Portfolio</p>
-          <h1>你好，我是 <span>Yuh</span></h1>
-          <p class="intro">欢迎来到我的数字空间。我喜欢用创意、代码和视觉表达，把想法变成可交互的作品。</p>
-          <div class="hero-actions">
-            <a class="primary-btn" href="#contact">联系我</a>
-            <a class="secondary-btn" href="#about">了解更多</a>
-          </div>
-          <ul class="hero-meta">
-            <li>✦ 设计感</li>
-            <li>✦ 前端开发</li>
-            <li>✦ 内容创作</li>
-          </ul>
-        </div>
-
-        <div class="hero-card">
-          <div class="profile-ring"></div>
-          <div class="profile-badge">Creative Developer</div>
-          <div class="mini-stats">
-            <div>
-              <strong>12+</strong>
-              <span>项目经验</span>
-            </div>
-            <div>
-              <strong>24/7</strong>
-              <span>灵感状态</span>
-            </div>
+  <section class="hero is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-1">Yuh-Hypnotized</h1>
+        <h2 class="subtitle is-4">Personal Page</h2>
+        <div class="columns is-centered">
+          <div class="column is-6">
+            <p><a href="https://github.com/Yuh-Hypnotized">GitHub</a></p>
           </div>
         </div>
-      </section>
-    </header>
-
-    <main class="content-grid">
-      <section id="about" class="panel">
-        <div class="panel-heading">
-          <p class="section-tag">ABOUT</p>
-          <h2>关于我</h2>
-        </div>
-        <p class="panel-copy">
-          这里是你的个人主页起点。你可以在这里放置自我介绍、创作理念、工作方向或最近的项目动态。
-          这个界面采用简洁的深色主题，适合用来展示个人品牌、博客链接、作品集或联系方式。
-        </p>
-      </section>
-
-      <section id="skills" class="panel">
-        <div class="panel-heading">
-          <p class="section-tag">SKILLS</p>
-          <h2>技能方向</h2>
-        </div>
-        <div class="skills-list">
-          <div class="skill-pill">网页设计</div>
-          <div class="skill-pill">前端开发</div>
-          <div class="skill-pill">品牌表达</div>
-          <div class="skill-pill">创意内容</div>
-        </div>
-      </section>
-
-      <section id="contact" class="panel contact-panel">
-        <div class="panel-heading">
-          <p class="section-tag">CONTACT</p>
-          <h2>联系我</h2>
-        </div>
-        <p class="panel-copy">
-          如果你想交流项目合作、分享创意想法，或者只是打个招呼，这里就是开始的地方。
-        </p>
-        <div class="contact-links">
-          <a href="mailto:example@example.com">Email</a>
-          <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Yuh Hypnotized. Crafted for your GitHub Pages.</p>
-  </footer>
-
-  <script src="script.js"></script>
+      </div>
+    </div>
+  </section>
 </body>
 </html>

@@ -1,35 +1,203 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>个人主页</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-  <style>
-    .hero-body {
-      background-color: #f5f5f5;
-    }
-    .hero-is-primary {
-      background-color: #007bff;
-      color: #fff;
-    }
-    .hero-is-small {
-      height: 200px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuh-Hypnotized · Personal Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <section class="hero is-fullheight">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title is-1">Yuh-Hypnotized</h1>
-        <h2 class="subtitle is-4">Personal Page</h2>
-        <div class="columns is-centered">
-          <div class="column is-6">
-            <p><a href="https://github.com/Yuh-Hypnotized">GitHub</a></p>
+
+  <div class="page-shell">
+
+    <!-- ====== Top Navigation ====== -->
+    <nav class="topbar">
+      <div></div>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="fun/">🎮 Fun Zone</a>
+        <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <!-- ====== Hero Section ====== -->
+    <section class="hero hero-new">
+      <div class="hero-content-new">
+        <!-- Left: Avatar -->
+        <div class="hero-avatar">
+          <img src="icon.jpg" alt="Yuh-Hypnotized avatar" class="avatar-img">
+        </div>
+
+        <!-- Right: Info -->
+        <div class="hero-info">
+          <h1 class="hero-name">Yuh_Hypnotized <span class="hero-aka">AKA FishyFiree</span></h1>
+          <p class="intro">
+            I craft software, mod Minecraft, and build tiny tools that make life fun.
+            Exploring the intersection of code and creativity — one project at a time.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="primary-btn">↓ Browse Projects</a>
+            <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noopener" class="secondary-btn">GitHub Profile</a>
           </div>
+          <ul class="hero-meta">
+            <li>📍 Based somewhere on Earth</li>
+            <li>🎓 Southeast University · School of Cyber Science And Engineering Student</li>
+            <li>⛏️ Minecraft Modder</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ====== Projects Section ====== -->
+    <section id="projects" class="section-block">
+      <div class="section-header">
+        <span class="section-tag">Portfolio</span>
+        <h2>Projects &amp; Creations</h2>
+        <p class="section-desc">A curated collection of things I've built — from classroom assignments to Minecraft mods.</p>
+      </div>
+
+      <div class="content-grid">
+
+        <!-- Column 1: School Projects -->
+        <div class="panel project-panel">
+          <div class="panel-icon">🎓</div>
+          <h3>课内项目</h3>
+          <p class="panel-copy">Coursework projects from my CS curriculum — data structures, algorithms, and software engineering.</p>
+          <div class="project-list">
+            <div class="project-card">
+              <div class="project-head">
+                <span class="project-name">DataStruct Lab</span>
+                <span class="project-grade">A</span>
+              </div>
+              <p class="project-desc">Implementations of classic data structures in C++ with performance benchmarks.</p>
+              <div class="project-tags">
+                <span>C++</span><span>DS&amp;A</span>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-head">
+                <span class="project-name">WebApp Coursework</span>
+                <span class="project-grade">A-</span>
+              </div>
+              <p class="project-desc">Full-stack web application built as a semester project — React + Node.js.</p>
+              <div class="project-tags">
+                <span>React</span><span>Node.js</span><span>SQL</span>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-head">
+                <span class="project-name">OS Scheduler Sim</span>
+                <span class="project-grade">B+</span>
+              </div>
+              <p class="project-desc">Operating system process scheduler simulation with visualization.</p>
+              <div class="project-tags">
+                <span>Python</span><span>OS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Minecraft Mods -->
+        <div class="panel project-panel">
+          <div class="panel-icon">⛏️</div>
+          <h3>Minecraft Mods</h3>
+          <p class="panel-copy">Custom Minecraft mods that add new mechanics, blocks, and experiences to the game.</p>
+          <div class="project-list">
+            <div class="project-card mc-card">
+              <div class="project-head">
+                <span class="project-name">FantasyCraft</span>
+                <span class="mc-version">1.20.1</span>
+              </div>
+              <p class="project-desc">Adds magical ores, enchanted tools, and a new dimension to explore.</p>
+              <div class="project-tags">
+                <span>Java</span><span>Forge</span><span>3D</span>
+              </div>
+            </div>
+            <div class="project-card mc-card">
+              <div class="project-head">
+                <span class="project-name">AutoFarmer</span>
+                <span class="mc-version">1.19.4</span>
+              </div>
+              <p class="project-desc">Quality-of-life mod that adds automated farming machines and storage systems.</p>
+              <div class="project-tags">
+                <span>Java</span><span>Fabric</span>
+              </div>
+            </div>
+            <div class="project-card mc-card">
+              <div class="project-head">
+                <span class="project-name">DungeonRush</span>
+                <span class="mc-version">1.21</span>
+              </div>
+              <p class="project-desc">Procedurally generated dungeons with custom bosses and loot tables.</p>
+              <div class="project-tags">
+                <span>Java</span><span>Forge</span><span>Gen</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Misc Projects -->
+        <div class="panel project-panel">
+          <div class="panel-icon">🔧</div>
+          <h3>杂项小程序</h3>
+          <p class="panel-copy">Small utilities, scripts, and experiments — tiny tools that solve tiny problems.</p>
+          <div class="project-list">
+            <div class="project-card">
+              <div class="project-head">
+                <span class="project-name">ClipSync</span>
+              </div>
+              <p class="project-desc">Cross-device clipboard sharing tool over LAN, written in Go.</p>
+              <div class="project-tags">
+                <span>Go</span><span>Net</span>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-head">
+                <span class="project-name">Img2ASCII</span>
+              </div>
+              <p class="project-desc">Converts any image to colored ASCII art in the terminal.</p>
+              <div class="project-tags">
+                <span>Python</span><span>CLI</span>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-head">
+                <span class="project-name">TodoTUI</span>
+              </div>
+              <p class="project-desc">A beautiful terminal-based todo app with vim keybindings.</p>
+              <div class="project-tags">
+                <span>Rust</span><span>TUI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====== Fun Zone CTA ====== -->
+    <section class="section-block">
+      <div class="fun-cta">
+        <div class="fun-cta-content">
+          <span class="fun-cta-icon">🎮</span>
+          <h2>Fun Zone</h2>
+          <p>Take a break and play some mini-games. No code, just fun — right in your browser.</p>
+        </div>
+        <a href="fun/" class="fun-cta-btn">Enter Fun Zone →</a>
+      </div>
+    </section>
+
+    <!-- ====== Footer ====== -->
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+      <p class="footer-sub">Inspired by late-night coding sessions and way too much Minecraft.</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

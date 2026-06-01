@@ -147,12 +147,68 @@ body::before {
 .hero-meta {
   list-style: none;
   padding: 0;
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   color: var(--text-soft);
   font-size: 0.85rem;
+}
+
+/* --- New Hero Layout (avatar + info) --- */
+.hero-new {
+  padding: 28px 30px;
+}
+
+.hero-content-new {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.hero-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(96,165,250,0.5);
+  box-shadow: 0 0 0 8px rgba(96,165,250,0.1), 0 0 30px rgba(96,165,250,0.25);
+}
+
+.hero-info {
+  min-width: 0;
+}
+
+.hero-name {
+  margin: 0;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.hero-aka {
+  color: var(--text-soft);
+  font-weight: 500;
+  font-size: 1rem;
+  margin-left: 6px;
+}
+
+.hero-info .intro {
+  margin: 8px 0 0;
+  max-width: 62ch;
+}
+
+.hero-info .hero-meta {
+  margin: 10px 0 0;
+}
+
+.hero-info .hero-actions {
+  margin-top: 14px;
 }
 
 .hero-card {
@@ -290,7 +346,607 @@ body::before {
     grid-template-columns: 1fr;
   }
 
+  .hero-content-new {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-info .hero-meta {
+    justify-content: center;
+  }
+
+  .hero-info .hero-actions {
+    justify-content: center;
+  }
+
   .content-grid {
     grid-template-columns: 1fr;
+  }
+
+  .fun-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fun-cta {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* =============================================
+   Section Layout
+   ============================================= */
+.section-block {
+  margin-top: 48px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.section-header h2 {
+  margin: 6px 0 10px;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.section-desc {
+  color: var(--text-soft);
+  margin: 0 auto;
+  max-width: 52ch;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* =============================================
+   Project Panels & Cards
+   ============================================= */
+.project-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.panel-icon {
+  font-size: 1.8rem;
+}
+
+.project-panel h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.project-card {
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: border-color 0.25s, background 0.25s, transform 0.2s;
+}
+
+.project-card:hover {
+  border-color: rgba(96,165,250,0.28);
+  background: rgba(96,165,250,0.06);
+  transform: translateY(-1px);
+}
+
+.mc-card:hover {
+  border-color: rgba(34,197,94,0.35);
+  background: rgba(34,197,94,0.06);
+}
+
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.project-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.project-grade {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(96,165,250,0.18);
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.mc-version {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(34,197,94,0.16);
+  color: var(--accent-strong);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.project-desc {
+  margin: 6px 0 10px;
+  color: var(--text-soft);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-tags span {
+  font-size: 0.7rem;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(148,163,184,0.1);
+  color: #a5b4d1;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+/* =============================================
+   Fun Zone CTA (Homepage)
+   ============================================= */
+.fun-cta {
+  border-radius: 28px;
+  padding: 36px 40px;
+  background: var(--bg-panel);
+  border: 1px solid rgba(96,165,250,0.14);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  transition: border-color 0.3s;
+}
+
+.fun-cta:hover {
+  border-color: rgba(96,165,250,0.35);
+}
+
+.fun-cta-content {
+  min-width: 0;
+}
+
+.fun-cta-icon {
+  font-size: 2rem;
+}
+
+.fun-cta-content h2 {
+  margin: 8px 0 4px;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.fun-cta-content p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 48ch;
+}
+
+.fun-cta-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1rem;
+  background: linear-gradient(135deg, var(--accent-strong), #16a34a);
+  color: white;
+  border: 1px solid rgba(74,222,128,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 30px rgba(34,197,94,0.2);
+}
+
+.fun-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 50px rgba(34,197,94,0.35);
+}
+.fun-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.fun-card {
+  border-radius: 24px;
+  padding: 22px;
+  background: var(--bg-panel);
+  border: 1px solid rgba(96,165,250,0.14);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.3s;
+}
+
+.fun-card:hover {
+  border-color: rgba(96,165,250,0.3);
+}
+
+.fun-card-placeholder {
+  opacity: 0.55;
+  border-style: dashed;
+}
+
+.fun-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fun-icon {
+  font-size: 1.6rem;
+}
+
+.fun-card-header h3 {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.fun-desc {
+  color: var(--text-soft);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.game-area {
+  margin-top: 4px;
+}
+
+/* --- Reaction Game --- */
+.reaction-box {
+  height: 140px;
+  border-radius: 18px;
+  background: rgba(96,165,250,0.1);
+  border: 2px solid rgba(96,165,250,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s, border-color 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.reaction-box:hover {
+  border-color: rgba(96,165,250,0.4);
+}
+
+.reaction-box.waiting {
+  background: rgba(34,197,94,0.08);
+  border-color: rgba(34,197,94,0.3);
+  animation: pulse-border 1.5s ease-in-out infinite;
+}
+
+.reaction-box.ready {
+  background: rgba(34,197,94,0.2) !important;
+  border-color: var(--accent-strong) !important;
+  animation: none;
+  box-shadow: 0 0 40px rgba(34,197,94,0.3);
+}
+
+.reaction-box.too-early {
+  background: rgba(239,68,68,0.2) !important;
+  border-color: rgba(239,68,68,0.5) !important;
+  animation: shake 0.4s ease;
+}
+
+#reaction-label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-soft);
+  pointer-events: none;
+  transition: color 0.15s;
+}
+
+.reaction-box.ready #reaction-label {
+  color: var(--accent-strong);
+}
+
+.reaction-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.reaction-stats strong {
+  color: var(--text-main);
+}
+
+/* --- Number Guesser --- */
+.guess-display {
+  min-height: 48px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  padding: 8px 12px;
+  text-align: center;
+  transition: color 0.2s;
+}
+
+.guess-display.correct {
+  color: var(--accent-strong);
+  border-color: rgba(34,197,94,0.4);
+}
+
+.guess-display.wrong {
+  color: #f87171;
+  border-color: rgba(239,68,68,0.3);
+}
+
+.guess-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.guess-controls input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.22);
+  background: rgba(255,255,255,0.04);
+  color: var(--text-main);
+  font-size: 0.88rem;
+  font-family: 'JetBrains Mono', monospace;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.guess-controls input:focus {
+  border-color: var(--accent);
+}
+
+.guess-controls input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.guess-controls button {
+  white-space: nowrap;
+  font-size: 0.82rem;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.guess-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.guess-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  min-height: 26px;
+}
+
+.guess-chip {
+  font-size: 0.7rem;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  animation: pop-in 0.25s ease;
+}
+
+.guess-chip.high {
+  background: rgba(239,68,68,0.14);
+  color: #f87171;
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+.guess-chip.low {
+  background: rgba(96,165,250,0.14);
+  color: #93c5fd;
+  border: 1px solid rgba(96,165,250,0.2);
+}
+
+.guess-chip.hit {
+  background: rgba(34,197,94,0.18);
+  color: #4ade80;
+  border: 1px solid rgba(34,197,94,0.3);
+}
+
+/* --- Fun Card as Link --- */
+.fun-card-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.fun-card-footer {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.fun-play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 0.84rem;
+  color: var(--accent-strong);
+  transition: gap 0.2s;
+}
+
+.fun-card-link:hover .fun-play-btn {
+  gap: 10px;
+}
+
+/* --- Full-size Game Area --- */
+.game-full {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.reaction-box-large {
+  height: 220px;
+}
+
+.reaction-stats-large {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.reaction-stat-card {
+  flex: 1;
+  text-align: center;
+  padding: 14px 8px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+.reaction-stat-card strong {
+  font-size: 1.6rem;
+  color: var(--text-main);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.guess-display-large {
+  min-height: 64px;
+  font-size: 1.05rem;
+}
+
+.guess-controls-large {
+  margin-top: 14px;
+}
+
+.guess-remaining {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* --- Coming Soon --- */
+.coming-soon-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.coming-soon-glow {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: rgba(148,163,184,0.2);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* =============================================
+   Footer
+   ============================================= */
+.site-footer {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  padding: 40px 0 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 48px;
+}
+
+.footer-sub {
+  margin: 4px 0 0;
+  font-size: 0.72rem;
+  color: rgba(148,163,184,0.5);
+}
+
+/* =============================================
+   Animations
+   ============================================= */
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(34,197,94,0.2); }
+  50% { border-color: rgba(34,197,94,0.5); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* =============================================
+   Responsive
+   ============================================= */
+@media (max-width: 900px) {
+  .fun-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .fun-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.2rem;
+  }
+
+  .guess-controls {
+    flex-wrap: wrap;
   }
 }

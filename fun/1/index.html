@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reaction Time · Fun Zone</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="page-shell">
+
+    <!-- ====== Top Navigation ====== -->
+    <nav class="topbar">
+      <a href="../index.html" class="brand">← Fun Zone</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+      </div>
+    </nav>
+
+    <!-- ====== Game Area ====== -->
+    <section class="hero hero-new">
+      <div class="section-header" style="margin-bottom:16px; text-align:left;">
+        <span class="section-tag">Game 1</span>
+        <h2>⚡ Reaction Time</h2>
+        <p class="section-desc" style="margin:8px 0 0;">Click the box to start. When it turns green, click as fast as you can!</p>
+      </div>
+
+      <div class="game-full">
+        <div class="reaction-box reaction-box-large" id="reaction-box">
+          <span id="reaction-label">Click to start</span>
+        </div>
+        <div class="reaction-stats reaction-stats-large">
+          <div class="reaction-stat-card">
+            <span>Best</span>
+            <strong id="reaction-best">—</strong>
+            <span>ms</span>
+          </div>
+          <div class="reaction-stat-card">
+            <span>Last</span>
+            <strong id="reaction-last">—</strong>
+            <span>ms</span>
+          </div>
+          <div class="reaction-stat-card">
+            <span>Attempts</span>
+            <strong id="reaction-attempts">0</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Footer ====== -->
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="reaction.js"></script>
+</body>
+</html>

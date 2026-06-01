@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guesser · Fun Zone</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="page-shell">
+
+    <!-- ====== Top Navigation ====== -->
+    <nav class="topbar">
+      <a href="../index.html" class="brand">← Fun Zone</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+      </div>
+    </nav>
+
+    <!-- ====== Game Area ====== -->
+    <section class="hero hero-new">
+      <div class="section-header" style="margin-bottom:16px; text-align:left;">
+        <span class="section-tag">Game 2</span>
+        <h2>🎯 Number Guesser</h2>
+        <p class="section-desc" style="margin:8px 0 0;">I'm thinking of a number between 1 and 100. Can you find it in 7 tries?</p>
+      </div>
+
+      <div class="game-full">
+        <div class="guess-display guess-display-large" id="guess-hint">Press start to play</div>
+        <div class="guess-controls guess-controls-large">
+          <input type="number" id="guess-input" min="1" max="100" placeholder="1–100" disabled>
+          <button id="guess-btn" class="primary-btn" disabled>Guess</button>
+          <button id="guess-start" class="secondary-btn">Start</button>
+        </div>
+        <div class="guess-history" id="guess-history"></div>
+        <div class="guess-remaining" id="guess-remaining"></div>
+      </div>
+    </section>
+
+    <!-- ====== Footer ====== -->
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="guesser.js"></script>
+</body>
+</html>

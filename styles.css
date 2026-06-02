@@ -501,6 +501,374 @@ body::before {
   letter-spacing: 0.02em;
 }
 
+/* --- Project Card as Link --- */
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-card-empty {
+  opacity: 0.45;
+  border-style: dashed !important;
+  cursor: default;
+}
+
+.project-card-empty:hover {
+  transform: none !important;
+  border-color: rgba(255,255,255,0.06) !important;
+  background: rgba(255,255,255,0.03) !important;
+}
+
+.detail-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.detail-card-empty {
+  opacity: 0.45;
+  border-style: dashed !important;
+  padding: 32px 24px !important;
+}
+
+/* --- Panel "View all" Link --- */
+.panel-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+
+.panel-more:hover {
+  gap: 8px;
+}
+
+/* =============================================
+   Detail Pages (sub-page project cards)
+   ============================================= */
+.detail-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.detail-card {
+  border-radius: 24px;
+  padding: 24px;
+  background: var(--bg-panel);
+  border: 1px solid rgba(96,165,250,0.14);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.25s;
+}
+
+.detail-card:hover {
+  border-color: rgba(96,165,250,0.28);
+}
+
+.mc-detail:hover {
+  border-color: rgba(34,197,94,0.3);
+}
+
+.detail-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.detail-head h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.detail-card > p {
+  margin: 0 0 14px;
+  color: var(--text-soft);
+  line-height: 1.65;
+  font-size: 0.93rem;
+}
+
+.detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.025);
+  font-size: 0.82rem;
+}
+
+.detail-row span {
+  color: var(--text-soft);
+}
+
+.detail-row strong {
+  color: var(--text-main);
+  font-weight: 600;
+  text-align: right;
+  max-width: 60%;
+}
+
+/* =============================================
+   Source Browser (file tree + code viewer)
+   ============================================= */
+.page-shell-wide {
+  width: min(1300px, calc(100% - 24px));
+}
+
+.source-browser {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(96,165,250,0.18);
+  background: var(--bg-panel);
+  box-shadow: var(--shadow);
+  height: 75vh;
+}
+
+/* --- File Tree --- */
+.file-tree {
+  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 12px 0;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.file-tree-header {
+  padding: 4px 14px 10px;
+  font-weight: 700;
+  font-size: 0.84rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: 4px;
+  position: sticky;
+  top: 0;
+  background: var(--bg-panel);
+  z-index: 1;
+}
+
+.file-tree-icon {
+  font-size: 1rem;
+}
+
+.tree-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tree-list .tree-list {
+  padding-left: 20px;
+}
+
+.tree-item {
+  padding: 3px 14px;
+  font-size: 0.81rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-soft);
+  font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
+  border-left: 2px solid transparent;
+  line-height: 1.6;
+}
+
+.tree-file {
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tree-file:hover {
+  background: rgba(96,165,250,0.08);
+  color: var(--text-main);
+}
+
+.tree-file.active {
+  background: rgba(96,165,250,0.14);
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+.tree-folder {
+  cursor: default;
+  color: #8895b5;
+}
+
+.tree-icon {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+}
+
+/* --- Code Viewer --- */
+.code-viewer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.code-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.code-filename {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.copy-btn {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(148,163,184,0.25);
+  background: rgba(255,255,255,0.04);
+  color: var(--text-soft);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.copy-btn:hover {
+  background: rgba(96,165,250,0.12);
+  color: var(--text-main);
+  border-color: rgba(96,165,250,0.4);
+}
+
+.copy-btn.copied {
+  background: rgba(34,197,94,0.15);
+  color: var(--accent-strong);
+  border-color: rgba(34,197,94,0.4);
+}
+
+.code-badge {
+  font-size: 0.64rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(96,165,250,0.15);
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.code-body {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+.code-body pre {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  position: relative;
+  overflow: visible;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.code-body pre.line-numbers {
+  padding-left: 3.8em !important;
+}
+
+.code-body code {
+  display: block;
+  padding: 16px 18px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace !important;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  background: transparent !important;
+  tab-size: 4;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+/* Prism line-numbers plugin overrides */
+.code-body .line-numbers-rows {
+  position: absolute;
+  top: 0;
+  left: -3.8em;
+  width: 3em;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 16px 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  pointer-events: none;
+  user-select: none;
+}
+
+.code-body .line-numbers-rows > span {
+  display: block;
+  counter-increment: linenumber;
+}
+
+.code-body .line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: rgba(148,163,184,0.35);
+  display: block;
+  text-align: right;
+  padding-right: 0.8em;
+}
+
+@media (max-width: 900px) {
+  .source-browser {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .file-tree {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    max-height: 200px;
+  }
+
+  .code-body {
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+}
+
 /* =============================================
    Fun Zone CTA (Homepage)
    ============================================= */

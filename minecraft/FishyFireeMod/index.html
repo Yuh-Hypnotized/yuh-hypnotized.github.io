@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FishyFiree Mod · Yuh-Hypnotized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+  <div class="page-shell page-shell-wide">
+
+    <!-- ====== Top Navigation ====== -->
+    <nav class="topbar">
+      <a href="../index.html" class="brand">← Minecraft</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../fun/">🎮 Fun</a>
+        <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <!-- ====== Project Header ====== -->
+    <section class="hero hero-new">
+      <div class="section-header" style="margin-bottom:0; text-align:left;">
+        <span class="section-tag">Minecraft Modding</span>
+        <h2>FishyFiree Mod <span class="mc-version" style="vertical-align:middle; margin-left:8px;">1.8.9</span></h2>
+        <p class="section-desc" style="margin:10px 0 0;">
+          A Forge mod for Minecraft 1.8.9 featuring an inventory <strong>Counter HUD</strong> (tracks blocks &amp; arrows with color-coded counts and threshold alerts) and a <strong>PlayerTracker</strong> compass HUD (shows nearest player per team color with distance and Y-delta). Both HUDs support draggable positioning, toggle hotkeys, and in-game settings GUIs.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+          <div class="project-tags"><span>Java</span><span>Forge 1.8.9</span><span>HUD</span><span>GUI</span><span>Events</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Source Browser ====== -->
+    <section class="section-block">
+      <div class="source-browser">
+
+        <!-- Left: File Tree -->
+        <aside class="file-tree">
+          <div class="file-tree-header">
+            <span class="file-tree-icon">📁</span>
+            <span>FishyFireeMod</span>
+          </div>
+          <ul class="tree-list">
+            <li class="tree-item tree-file" data-file="build">
+              <span class="tree-icon">📄</span> build.gradle
+            </li>
+            <li class="tree-item tree-file" data-file="gradle-props">
+              <span class="tree-icon">📄</span> gradle.properties
+            </li>
+            <li class="tree-item tree-file" data-file="mcmod-info">
+              <span class="tree-icon">📄</span> mcmod.info
+            </li>
+            <li class="tree-item tree-folder">
+              <span class="tree-icon">📂</span> src/
+            </li>
+            <li class="tree-item tree-folder" style="padding-left:34px;">
+              <span class="tree-icon">📂</span> main/
+            </li>
+            <li class="tree-item tree-folder" style="padding-left:54px;">
+              <span class="tree-icon">📂</span> java/com/fishyfire/fishyfiremod/
+            </li>
+            <li class="tree-item tree-file active" data-file="main" style="padding-left:74px;">
+              <span class="tree-icon">☕</span> FishyFireeMod.java
+            </li>
+            <li class="tree-item tree-folder" style="padding-left:74px;">
+              <span class="tree-icon">📂</span> commands/
+            </li>
+            <li class="tree-item tree-file" data-file="counter-cmd" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> CounterCommand.java
+            </li>
+            <li class="tree-item tree-file" data-file="example-cmd" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> ExampleCommand.java
+            </li>
+            <li class="tree-item tree-file" data-file="tracker-cmd" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> PlayerTrackerCommand.java
+            </li>
+            <li class="tree-item tree-folder" style="padding-left:74px;">
+              <span class="tree-icon">📂</span> config/
+            </li>
+            <li class="tree-item tree-file" data-file="config" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> ConfigHandler.java
+            </li>
+            <li class="tree-item tree-folder" style="padding-left:74px;">
+              <span class="tree-icon">📂</span> events/
+            </li>
+            <li class="tree-item tree-file" data-file="gui-opener" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> GuiOpener.java
+            </li>
+            <li class="tree-item tree-file" data-file="keybind" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> KeybindListener.java
+            </li>
+            <li class="tree-item tree-folder" style="padding-left:74px;">
+              <span class="tree-icon">📂</span> gui/
+            </li>
+            <li class="tree-item tree-file" data-file="gui-counter" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> GuiCounterSettings.java
+            </li>
+            <li class="tree-item tree-file" data-file="gui-hud-pos" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> GuiEditHUDPosition.java
+            </li>
+            <li class="tree-item tree-file" data-file="gui-tracker" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> GuiPlayerTrackerSettings.java
+            </li>
+            <li class="tree-item tree-file" data-file="gui-tracker-pos" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> GuiEditPlayerTrackerPosition.java
+            </li>
+            <li class="tree-item tree-folder" style="padding-left:74px;">
+              <span class="tree-icon">📂</span> hud/
+            </li>
+            <li class="tree-item tree-file" data-file="counter-hud" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> CounterHUD.java
+            </li>
+            <li class="tree-item tree-file" data-file="tracker-hud" style="padding-left:94px;">
+              <span class="tree-icon">☕</span> PlayerTrackerHUD.java
+            </li>
+            <li class="tree-item tree-folder" style="padding-left:54px;">
+              <span class="tree-icon">📂</span> resources/
+            </li>
+            <li class="tree-item tree-file" data-file="mcmod-info" style="padding-left:74px;">
+              <span class="tree-icon">📄</span> mcmod.info
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Right: Code Viewer -->
+        <main class="code-viewer">
+          <div class="code-header">
+            <span class="code-filename" id="code-filename">FishyFireeMod.java</span>
+            <div class="code-header-right">
+              <button class="copy-btn" id="copy-btn" title="Copy source code">📋 Copy</button>
+              <span class="code-badge">Java</span>
+            </div>
+          </div>
+          <div class="code-body">
+            <pre class="line-numbers"><code class="language-java" id="code-content">// Select a file from the tree →</code></pre>
+          </div>
+        </main>
+
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+    </footer>
+
+  </div>
+
+  <!-- Prism.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-groovy.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+  <!-- Source file contents via data attributes -->
+  <script id="source-data" type="application/json">
+{
+  "main": "package com.fishyfire.fishyfiremod;\n\nimport com.fishyfire.fishyfiremod.commands.CounterCommand;\nimport com.fishyfire.fishyfiremod.commands.ExampleCommand;\nimport com.fishyfire.fishyfiremod.config.ConfigHandler;\nimport com.fishyfire.fishyfiremod.events.KeybindListener;\nimport com.fishyfire.fishyfiremod.hud.CounterHUD;\nimport net.minecraftforge.client.ClientCommandHandler;\nimport net.minecraftforge.common.MinecraftForge;\nimport net.minecraftforge.fml.common.Loader;\nimport net.minecraftforge.fml.common.Mod;\nimport net.minecraftforge.fml.common.Mod.EventHandler;\nimport net.minecraftforge.fml.common.event.FMLInitializationEvent;\nimport net.minecraftforge.fml.common.event.FMLPreInitializationEvent;\n\n@Mod(\n        modid = FishyFireeMod.MODID,\n        name = FishyFireeMod.MODNAME,\n        version = FishyFireeMod.VERSION)\npublic class FishyFireeMod {\n\n    public static final String MODID = \"fishyfireemod\";\n    public static final String MODNAME = \"FishyFiree Mod\";\n    public static final String VERSION = \"1.1\";\n\n    @EventHandler\n    public void preInit(FMLPreInitializationEvent event) {\n        ConfigHandler.loadConfig(event.getSuggestedConfigurationFile());\n    }\n\n    @EventHandler\n    public void init(FMLInitializationEvent event) {\n        ClientCommandHandler.instance.registerCommand(new ExampleCommand());\n        ClientCommandHandler.instance.registerCommand(new CounterCommand());\n        ClientCommandHandler.instance.registerCommand(\n            new com.fishyfire.fishyfiremod.commands.PlayerTrackerCommand());\n\n        MinecraftForge.EVENT_BUS.register(new KeybindListener());\n        MinecraftForge.EVENT_BUS.register(new CounterHUD());\n        MinecraftForge.EVENT_BUS.register(\n            new com.fishyfire.fishyfiremod.hud.PlayerTrackerHUD());\n\n        if (Loader.isModLoaded(\"patcher\")) {\n            // compatibility code for Patcher mod\n        }\n    }\n}\n",
+
+  "counter-hud": "package com.fishyfire.fishyfiremod.hud;\n\nimport net.minecraft.client.Minecraft;\nimport net.minecraft.client.gui.Gui;\nimport net.minecraft.client.gui.FontRenderer;\nimport net.minecraft.client.gui.ScaledResolution;\nimport net.minecraft.entity.player.InventoryPlayer;\nimport net.minecraft.init.Items;\nimport net.minecraft.item.ItemBlock;\nimport net.minecraft.item.ItemStack;\nimport net.minecraftforge.client.event.RenderGameOverlayEvent;\nimport net.minecraftforge.fml.common.eventhandler.SubscribeEvent;\n\npublic class CounterHUD {\n\n    private static final int COLOR_YELLOW       = 0xFFFF55;\n    private static final int COLOR_GREEN        = 0x55FF55;\n    private static final int COLOR_LIGHT_YELLOW = 0xFFFF55;\n    private static final int COLOR_ORANGE       = 0xFFAA00;\n    private static final int COLOR_RED          = 0xFF5555;\n\n    private static boolean enabled = true;\n    private static boolean playSound = true;\n    private static boolean showToggleMessage = true;\n    private static boolean showBackground = false;\n    private static int thresholdOrange = 20;\n    private static int thresholdGreen = 64;\n    private static int hudPosX = -1;\n    private static int hudPosY = -1;\n\n    public static boolean isEnabled() { return enabled; }\n\n    public static void toggle() {\n        enabled = !enabled;\n        if (playSound) {\n            Minecraft mc = Minecraft.getMinecraft();\n            if (mc.thePlayer != null) {\n                float pitch = enabled ? 1.0F : 0.5F;\n                mc.thePlayer.playSound(\"random.orb\", 0.5F, pitch);\n            }\n        }\n    }\n\n    /* ... getters/setters for playSound, showToggleMessage,\n       showBackground, thresholdOrange, thresholdGreen, hudPos ... */\n\n    @SubscribeEvent\n    public void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {\n        if (event.type == RenderGameOverlayEvent.ElementType.TEXT && enabled) {\n            int x, y;\n            if (hudPosX >= 0 && hudPosY >= 0) {\n                x = hudPosX; y = hudPosY;\n            } else {\n                x = event.resolution.getScaledWidth() * 3 / 4 - 20;\n                y = event.resolution.getScaledHeight() / 4;\n            }\n            drawAt(event.resolution, x, y);\n        }\n    }\n\n    public static void drawAt(ScaledResolution resolution, int x, int y) {\n        FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;\n        CounterHUD tmp = new CounterHUD();\n        int blockCount = tmp.countBlocksInInventory();\n        int arrowCount = tmp.countArrowsInInventory();\n        int blockNumColor = tmp.getCountColor(blockCount);\n        int arrowNumColor = tmp.getCountColor(arrowCount);\n\n        if (showBackground) {\n            int bgW = Math.max(fr.getStringWidth(\"Blocks: \" + blockCount),\n                fr.getStringWidth(\"Arrows: \" + arrowCount)) + 8;\n            Gui.drawRect(x - 4, y - 4, x + bgW, y + 36, 0x66000000);\n        }\n\n        fr.drawStringWithShadow(\"Blocks: \", x, y, COLOR_YELLOW);\n        int w = fr.getStringWidth(\"Blocks: \");\n        fr.drawStringWithShadow(String.valueOf(blockCount), x + w, y, blockNumColor);\n\n        fr.drawStringWithShadow(\"Arrows: \", x, y + 10, COLOR_YELLOW);\n        w = fr.getStringWidth(\"Arrows: \");\n        fr.drawStringWithShadow(String.valueOf(arrowCount), x + w, y + 10, arrowNumColor);\n    }\n\n    private int getCountColor(int count) {\n        if (count >= thresholdGreen)     return COLOR_GREEN;\n        else if (count >= thresholdOrange) return COLOR_LIGHT_YELLOW;\n        else if (count > 0)              return COLOR_ORANGE;\n        else                             return COLOR_RED;\n    }\n\n    private int countBlocksInInventory() {\n        int count = 0;\n        InventoryPlayer inv = Minecraft.getMinecraft().thePlayer.inventory;\n        for (int i = 0; i < inv.mainInventory.length; i++) {\n            ItemStack stack = inv.mainInventory[i];\n            if (stack != null && stack.getItem() instanceof ItemBlock)\n                count += stack.stackSize;\n        }\n        return count;\n    }\n\n    private int countArrowsInInventory() {\n        int count = 0;\n        InventoryPlayer inv = Minecraft.getMinecraft().thePlayer.inventory;\n        for (int i = 0; i < inv.mainInventory.length; i++) {\n            ItemStack stack = inv.mainInventory[i];\n            if (stack != null && stack.getItem() == Items.arrow)\n                count += stack.stackSize;\n        }\n        return count;\n    }\n}\n",
+
+  "tracker-hud": "package com.fishyfire.fishyfiremod.hud;\n\nimport net.minecraft.client.Minecraft;\nimport net.minecraft.client.gui.FontRenderer;\nimport net.minecraft.client.gui.ScaledResolution;\nimport net.minecraft.client.gui.Gui;\nimport net.minecraft.entity.player.EntityPlayer;\nimport net.minecraftforge.client.event.RenderGameOverlayEvent;\nimport net.minecraftforge.fml.common.eventhandler.SubscribeEvent;\nimport java.util.List;\n\n/**\n * PlayerTracker HUD - shows nearest player of each team color.\n */\npublic class PlayerTrackerHUD {\n\n    private static boolean enabled = true;\n    private static int redChoice = 0, greenChoice = 0;\n    private static int blueChoice = 0, yellowChoice = 0;\n    private static int hudPosX = -1, hudPosY = -1;\n    private static boolean showBackground = false;\n\n    // Color option arrays (formatting chars without §)\n    private static final char[] RED_OPTS    = {'c','d','5'};\n    private static final char[] GREEN_OPTS  = {'a','2','8'};\n    private static final char[] BLUE_OPTS   = {'9','1','3'};\n    private static final char[] YELLOW_OPTS = {'e','6','f'};\n\n    /* ... getters/setters for enabled, hudPos, choices, background ... */\n\n    @SubscribeEvent\n    public void onRenderGameOverlay(RenderGameOverlayEvent.Post event) {\n        if (event.type != RenderGameOverlayEvent.ElementType.TEXT || !enabled) return;\n        int x = hudPosX >= 0 ? hudPosX : event.resolution.getScaledWidth() / 4;\n        int y = hudPosY >= 0 ? hudPosY : event.resolution.getScaledHeight() / 4;\n        drawAt(event.resolution, x, y);\n    }\n\n    public static void drawAt(ScaledResolution res, int x, int y) {\n        Minecraft mc = Minecraft.getMinecraft();\n        if (mc.theWorld == null || mc.thePlayer == null) return;\n        FontRenderer fr = mc.fontRendererObj;\n\n        // Find nearest player per team color\n        EntityPlayer[] nearest = {null, null, null, null};\n        double[] dists = {Double.MAX_VALUE, Double.MAX_VALUE,\n                          Double.MAX_VALUE, Double.MAX_VALUE};\n        char[][] opts = {RED_OPTS, GREEN_OPTS, BLUE_OPTS, YELLOW_OPTS};\n        int[] choices = {redChoice, greenChoice, blueChoice, yellowChoice};\n\n        List players = mc.theWorld.playerEntities;\n        for (Object o : players) {\n            if (!(o instanceof EntityPlayer)) continue;\n            EntityPlayer p = (EntityPlayer) o;\n            if (p == mc.thePlayer) continue;\n\n            String formatted = p.getDisplayName().getFormattedText();\n            char lastColor = extractColorForUsername(formatted, p.getName());\n            if (lastColor == '\\0')\n                lastColor = getFirstVisibleCharColor(formatted);\n\n            double dx = p.posX - mc.thePlayer.posX;\n            double dy = p.posY - mc.thePlayer.posY;\n            double dz = p.posZ - mc.thePlayer.posZ;\n            double distSq = dx*dx + dy*dy + dz*dz;\n\n            for (int t = 0; t < 4; t++) {\n                if (isColorMatch(lastColor, opts[t], choices[t]) && distSq < dists[t]) {\n                    dists[t] = distSq;\n                    nearest[t] = p;\n                }\n            }\n        }\n\n        int lineH = fr.FONT_HEIGHT + 2;\n        String[] labels = {\"<Red>\", \"<Green>\", \"<Blue>\", \"<Yellow>\"};\n        for (int t = 0; t < 4; t++) {\n            if (nearest[t] != null) {\n                drawPlayerLine(fr, nearest[t], dists[t], x, y + t * lineH,\n                    mapChoiceToRenderColor(opts[t], choices[t]));\n            } else {\n                fr.drawStringWithShadow(labels[t] + \" §7§o- None\",\n                    x, y + t * lineH, mapChoiceToRenderColor(opts[t], choices[t]));\n            }\n        }\n    }\n\n    private static void drawPlayerLine(FontRenderer fr, EntityPlayer p,\n            double distSq, int x, int y, int color) {\n        String name = p.getDisplayName().getUnformattedText();\n        double dist = Math.sqrt(distSq);\n        double yDiff = p.posY - Minecraft.getMinecraft().thePlayer.posY;\n        String sign = yDiff >= 0 ? \"+\" : \"-\";\n        String mag = String.format(\"%.1fm\", Math.abs(yDiff));\n\n        fr.drawStringWithShadow(name, x, y, color);\n        int curX = x + fr.getStringWidth(name);\n        String distOut = \" \" + String.format(\"%.1fm\", dist);\n        fr.drawStringWithShadow(distOut, curX, y, 0xFFFFFF);\n        curX += fr.getStringWidth(distOut);\n        fr.drawStringWithShadow(\" | \", curX, y, 0xBBBBBB);\n        curX += fr.getStringWidth(\" | \");\n        fr.drawStringWithShadow(sign, curX, y, yDiff >= 0 ? 0x55FFFF : 0xAA55FF);\n        curX += fr.getStringWidth(sign);\n        fr.drawStringWithShadow(mag, curX, y, 0xAAAAAA);\n    }\n\n    /* ... extractColorForUsername, getFirstVisibleCharColor,\n       mapChoiceToRenderColor, isColorMatch helpers ... */\n}\n",
+
+  "counter-cmd": "package com.fishyfire.fishyfiremod.commands;\n\nimport com.fishyfire.fishyfiremod.hud.CounterHUD;\nimport net.minecraft.client.Minecraft;\nimport net.minecraft.command.CommandBase;\nimport net.minecraft.command.ICommandSender;\nimport net.minecraft.util.ChatComponentText;\nimport java.util.List;\n\npublic class CounterCommand extends CommandBase {\n\n    @Override\n    public String getCommandName() { return \"counter\"; }\n\n    @Override\n    public String getCommandUsage(ICommandSender sender) {\n        return \"/counter <toggle|settings>\";\n    }\n\n    @Override\n    public boolean canCommandSenderUseCommand(ICommandSender sender) {\n        return true;\n    }\n\n    @Override\n    public int getRequiredPermissionLevel() { return 0; }\n\n    @Override\n    public void processCommand(ICommandSender sender, String[] args) {\n        if (args.length == 0) {\n            sender.addChatMessage(new ChatComponentText(\n                \"§eUsage: /counter <toggle|settings>\"));\n            return;\n        }\n        if (args[0].equalsIgnoreCase(\"toggle\")) {\n            CounterHUD.toggle();\n            if (CounterHUD.isShowToggleMessage()) {\n                boolean on = CounterHUD.isEnabled();\n                String status = on ? \"§aEnabled\" : \"§cDisabled\";\n                sender.addChatMessage(new ChatComponentText(\n                    \"§d[FishyFireeMod] §fCounter HUD \" + status));\n            }\n        } else if (args[0].equalsIgnoreCase(\"settings\")) {\n            sender.addChatMessage(new ChatComponentText(\n                \"§d[FishyFireeMod] §fOpening counter settings...\"));\n            com.fishyfire.fishyfiremod.events.GuiOpener.requestOpen();\n        } else {\n            sender.addChatMessage(new ChatComponentText(\n                \"§eUsage: /counter <toggle|settings>\"));\n        }\n    }\n\n    @Override\n    public List<String> addTabCompletionOptions(ICommandSender sender,\n            String[] args, BlockPos pos) {\n        if (args.length == 1)\n            return getListOfStringsMatchingLastWord(args,\n                new String[]{\"toggle\", \"settings\"});\n        return null;\n    }\n}\n",
+
+  "config": "package com.fishyfire.fishyfiremod.config;\n\nimport com.fishyfire.fishyfiremod.hud.CounterHUD;\nimport com.fishyfire.fishyfiremod.hud.PlayerTrackerHUD;\nimport net.minecraftforge.common.config.Configuration;\nimport java.io.File;\n\npublic class ConfigHandler {\n\n    private static Configuration config;\n\n    public static void loadConfig(File suggestedFile) {\n        if (suggestedFile == null) return;\n        config = new Configuration(suggestedFile);\n        syncFromConfig();\n    }\n\n    private static void syncFromConfig() {\n        if (config == null) return;\n        config.load();\n\n        // Counter settings\n        boolean playSound = config.getBoolean(\"playSound\", \"counter\",\n            CounterHUD.isPlaySound(), \"Play toggle sound\");\n        boolean showMsg = config.getBoolean(\"showToggleMessage\", \"counter\",\n            CounterHUD.isShowToggleMessage(), \"Show toggle message\");\n        int thO = config.getInt(\"thresholdOrange\", \"counter\",\n            CounterHUD.getThresholdOrange(), 1, 999, \"Orange threshold\");\n        int thG = config.getInt(\"thresholdGreen\", \"counter\",\n            CounterHUD.getThresholdGreen(), 1, 999, \"Green threshold\");\n        int cHudX = config.getInt(\"hudPosX\", \"counter\",\n            CounterHUD.getHudPosX(), -9999, 9999, \"HUD X\");\n        int cHudY = config.getInt(\"hudPosY\", \"counter\",\n            CounterHUD.getHudPosY(), -9999, 9999, \"HUD Y\");\n        boolean cBg = config.getBoolean(\"showBackground\", \"counter\",\n            CounterHUD.isShowBackground(), \"Show background\");\n\n        CounterHUD.setPlaySound(playSound);\n        CounterHUD.setShowToggleMessage(showMsg);\n        CounterHUD.setThresholds(thO, thG);\n        CounterHUD.setHudPos(cHudX, cHudY);\n        CounterHUD.setShowBackground(cBg);\n\n        // PlayerTracker settings\n        int r = config.getInt(\"redChoice\", \"playertracker\",\n            PlayerTrackerHUD.getRedChoice(), 0, 2, \"Red choice\");\n        int g = config.getInt(\"greenChoice\", \"playertracker\",\n            PlayerTrackerHUD.getGreenChoice(), 0, 2, \"Green choice\");\n        int b = config.getInt(\"blueChoice\", \"playertracker\",\n            PlayerTrackerHUD.getBlueChoice(), 0, 2, \"Blue choice\");\n        int y = config.getInt(\"yellowChoice\", \"playertracker\",\n            PlayerTrackerHUD.getYellowChoice(), 0, 2, \"Yellow choice\");\n        int pHudX = config.getInt(\"hudPosX\", \"playertracker\",\n            PlayerTrackerHUD.getHudPosX(), -9999, 9999, \"HUD X\");\n        int pHudY = config.getInt(\"hudPosY\", \"playertracker\",\n            PlayerTrackerHUD.getHudPosY(), -9999, 9999, \"HUD Y\");\n        boolean pBg = config.getBoolean(\"showBackground\", \"playertracker\",\n            PlayerTrackerHUD.isShowBackground(), \"Show background\");\n\n        PlayerTrackerHUD.setRedChoice(r);\n        PlayerTrackerHUD.setGreenChoice(g);\n        PlayerTrackerHUD.setBlueChoice(b);\n        PlayerTrackerHUD.setYellowChoice(y);\n        PlayerTrackerHUD.setHudPos(pHudX, pHudY);\n        PlayerTrackerHUD.setShowBackground(pBg);\n\n        if (config.hasChanged()) config.save();\n    }\n\n    public static void saveConfig() {\n        if (config == null) return;\n        config.getCategory(\"counter\").get(\"playSound\")\n            .set(CounterHUD.isPlaySound());\n        config.getCategory(\"counter\").get(\"showToggleMessage\")\n            .set(CounterHUD.isShowToggleMessage());\n        config.getCategory(\"counter\").get(\"thresholdOrange\")\n            .set(CounterHUD.getThresholdOrange());\n        config.getCategory(\"counter\").get(\"thresholdGreen\")\n            .set(CounterHUD.getThresholdGreen());\n        config.getCategory(\"counter\").get(\"hudPosX\")\n            .set(CounterHUD.getHudPosX());\n        config.getCategory(\"counter\").get(\"hudPosY\")\n            .set(CounterHUD.getHudPosY());\n        config.getCategory(\"counter\").get(\"showBackground\")\n            .set(CounterHUD.isShowBackground());\n\n        config.getCategory(\"playertracker\").get(\"redChoice\")\n            .set(PlayerTrackerHUD.getRedChoice());\n        config.getCategory(\"playertracker\").get(\"greenChoice\")\n            .set(PlayerTrackerHUD.getGreenChoice());\n        config.getCategory(\"playertracker\").get(\"blueChoice\")\n            .set(PlayerTrackerHUD.getBlueChoice());\n        config.getCategory(\"playertracker\").get(\"yellowChoice\")\n            .set(PlayerTrackerHUD.getYellowChoice());\n        config.getCategory(\"playertracker\").get(\"hudPosX\")\n            .set(PlayerTrackerHUD.getHudPosX());\n        config.getCategory(\"playertracker\").get(\"hudPosY\")\n            .set(PlayerTrackerHUD.getHudPosY());\n        config.getCategory(\"playertracker\").get(\"showBackground\")\n            .set(PlayerTrackerHUD.isShowBackground());\n\n        config.save();\n    }\n}\n",
+
+  "keybind": "package com.fishyfire.fishyfiremod.events;\n\nimport com.fishyfire.fishyfiremod.hud.CounterHUD;\nimport com.fishyfire.fishyfiremod.gui.GuiCounterSettings;\nimport net.minecraft.client.Minecraft;\nimport net.minecraft.client.settings.KeyBinding;\nimport net.minecraft.util.ChatComponentText;\nimport net.minecraftforge.fml.client.registry.ClientRegistry;\nimport net.minecraftforge.fml.common.eventhandler.SubscribeEvent;\nimport net.minecraftforge.fml.common.gameevent.InputEvent;\nimport net.minecraftforge.fml.common.gameevent.TickEvent;\nimport org.lwjgl.input.Keyboard;\n\npublic class KeybindListener {\n\n    private final KeyBinding counterToggleKeybind =\n        new KeyBinding(\"Toggle counters\", Keyboard.KEY_NONE, \"FishyFiree Mod\");\n    private final KeyBinding playerTrackerToggleKeybind =\n        new KeyBinding(\"Toggle player tracker\", Keyboard.KEY_NONE, \"FishyFiree Mod\");\n\n    public KeybindListener() {\n        ClientRegistry.registerKeyBinding(counterToggleKeybind);\n        ClientRegistry.registerKeyBinding(playerTrackerToggleKeybind);\n    }\n\n    @SubscribeEvent\n    public void onKeyPress(InputEvent.KeyInputEvent event) {\n        if (counterToggleKeybind.isPressed()) {\n            CounterHUD.toggle();\n            if (CounterHUD.isShowToggleMessage()) {\n                boolean on = CounterHUD.isEnabled();\n                String status = on ? \"§aEnabled\" : \"§cDisabled\";\n                Minecraft.getMinecraft().thePlayer.addChatMessage(\n                    new ChatComponentText(\n                        \"§d[FishyFireeMod] §fCounter HUD \" + status));\n            }\n        }\n        if (playerTrackerToggleKeybind.isPressed()) {\n            com.fishyfire.fishyfiremod.hud.PlayerTrackerHUD.toggle();\n            String status = com.fishyfire.fishyfiremod.hud.PlayerTrackerHUD\n                .isEnabled() ? \"§aEnabled\" : \"§cDisabled\";\n            Minecraft.getMinecraft().thePlayer.addChatMessage(\n                new ChatComponentText(\n                    \"§d[FishyFireeMod] §fPlayerTracker \" + status));\n        }\n    }\n\n    @SubscribeEvent\n    public void onClientTick(TickEvent.ClientTickEvent event) {\n        if (com.fishyfire.fishyfiremod.events.GuiOpener.consumeRequest()) {\n            try {\n                Minecraft mc = Minecraft.getMinecraft();\n                if (com.fishyfire.fishyfiremod.hud.PlayerTrackerHUD\n                        .consumeOpenSettings()) {\n                    mc.displayGuiScreen(\n                        new com.fishyfire.fishyfiremod.gui\n                            .GuiPlayerTrackerSettings());\n                } else {\n                    mc.displayGuiScreen(new GuiCounterSettings());\n                }\n            } catch (Throwable t) {\n                t.printStackTrace();\n            }\n        }\n    }\n}\n",
+
+  "gui-opener": "package com.fishyfire.fishyfiremod.events;\n\n/**\n * Simple cross-side helper to request that the client opens\n * a GUI on the next client tick. Safe to reference from\n * common code (no client-only imports).\n */\npublic class GuiOpener {\n\n    private static volatile boolean openRequested = false;\n    private static volatile boolean openPlayerTrackerRequested = false;\n\n    public static void requestOpen() {\n        openRequested = true;\n    }\n\n    public static void requestOpenPlayerTracker() {\n        openPlayerTrackerRequested = true;\n    }\n\n    public static boolean consumeRequest() {\n        if (openRequested) {\n            openRequested = false;\n            return true;\n        }\n        return false;\n    }\n\n    public static boolean consumePlayerTrackerRequest() {\n        if (openPlayerTrackerRequested) {\n            openPlayerTrackerRequested = false;\n            return true;\n        }\n        return false;\n    }\n}\n",
+
+  "build": "plugins {\n    id 'net.minecraftforge.gradle' version '2.1-SNAPSHOT'\n}\n\nversion = \"1.1\"\ngroup = \"com.fishyfire.fishyfiremod\"\narchivesBaseName = \"FishyFireeMod\"\n\nminecraft {\n    version = \"1.8.9-11.15.1.2318-1.8.9\"\n    runDir = \"run\"\n    mappings = \"stable_22\"\n}\n\nsourceSets {\n    main {\n        java { srcDirs = ['src/main/java'] }\n        resources { srcDirs = ['src/main/resources'] }\n    }\n}\n\nprocessResources {\n    inputs.property \"version\", project.version\n    inputs.property \"mcversion\", project.minecraft.version\n\n    from(sourceSets.main.resources.srcDirs) {\n        include 'mcmod.info'\n        expand 'version': project.version,\n               'mcversion': project.minecraft.version\n    }\n\n    from(sourceSets.main.resources.srcDirs) {\n        exclude 'mcmod.info'\n    }\n}\n",
+
+  "gradle-props": "org.gradle.jvmargs=-Xmx1G\n",
+
+  "mcmod-info": "[\n  {\n    \"modid\": \"fishyfireemod\",\n    \"name\": \"FishyFiree Mod\",\n    \"description\": \"Counter HUD + PlayerTracker for 1.8.9\",\n    \"version\": \"1.1\",\n    \"mcversion\": \"1.8.9\",\n    \"authorList\": [\"FishyFiree\"]\n  }\n]\n",
+
+  "example-cmd": "package com.fishyfire.fishyfiremod.commands;\n\nimport net.minecraft.command.CommandBase;\nimport net.minecraft.command.ICommandSender;\n\npublic class ExampleCommand extends CommandBase {\n    @Override\n    public String getCommandName() { return \"fishyfiree\"; }\n\n    @Override\n    public String getCommandUsage(ICommandSender sender) {\n        return \"/fishyfiree\";\n    }\n\n    @Override\n    public boolean canCommandSenderUseCommand(ICommandSender sender) {\n        return true;\n    }\n\n    @Override\n    public int getRequiredPermissionLevel() { return 0; }\n\n    @Override\n    public void processCommand(ICommandSender sender, String[] args) {\n        // Placeholder command\n    }\n}\n",
+
+  "tracker-cmd": "package com.fishyfire.fishyfiremod.commands;\n\nimport net.minecraft.command.CommandBase;\nimport net.minecraft.command.ICommandSender;\nimport net.minecraft.util.ChatComponentText;\nimport java.util.List;\n\npublic class PlayerTrackerCommand extends CommandBase {\n    @Override\n    public String getCommandName() { return \"playertracker\"; }\n\n    @Override\n    public String getCommandUsage(ICommandSender sender) {\n        return \"/playertracker <toggle|settings>\";\n    }\n\n    @Override\n    public boolean canCommandSenderUseCommand(ICommandSender sender) {\n        return true;\n    }\n\n    @Override\n    public int getRequiredPermissionLevel() { return 0; }\n\n    @Override\n    public void processCommand(ICommandSender sender, String[] args) {\n        if (args.length == 0) {\n            sender.addChatMessage(new ChatComponentText(\n                \"§eUsage: /playertracker <toggle|settings>\"));\n            return;\n        }\n        if (args[0].equalsIgnoreCase(\"toggle\")) {\n            com.fishyfire.fishyfiremod.hud.PlayerTrackerHUD.toggle();\n            boolean on = com.fishyfire.fishyfiremod.hud\n                .PlayerTrackerHUD.isEnabled();\n            String status = on ? \"§aEnabled\" : \"§cDisabled\";\n            sender.addChatMessage(new ChatComponentText(\n                \"§d[FishyFireeMod] §fPlayerTracker \" + status));\n        } else if (args[0].equalsIgnoreCase(\"settings\")) {\n            sender.addChatMessage(new ChatComponentText(\n                \"§d[FishyFireeMod] §fOpening player tracker settings...\"));\n            com.fishyfire.fishyfiremod.hud.PlayerTrackerHUD\n                .requestOpenSettings();\n            com.fishyfire.fishyfiremod.events.GuiOpener.requestOpen();\n        } else {\n            sender.addChatMessage(new ChatComponentText(\n                \"§eUsage: /playertracker <toggle|settings>\"));\n        }\n    }\n\n    @Override\n    public List<String> addTabCompletionOptions(ICommandSender sender,\n            String[] args, BlockPos pos) {\n        if (args.length == 1)\n            return getListOfStringsMatchingLastWord(args,\n                new String[]{\"toggle\", \"settings\"});\n        return null;\n    }\n}\n",
+
+  "gui-counter": "package com.fishyfire.fishyfiremod.gui;\n\nimport com.fishyfire.fishyfiremod.hud.CounterHUD;\nimport net.minecraft.client.gui.GuiScreen;\n\n/**\n * GUI for configuring Counter HUD settings:\n * thresholds, sound toggle, background toggle,\n * and HUD position editing.\n */\npublic class GuiCounterSettings extends GuiScreen {\n    // In-game settings screen with sliders, buttons,\n    // and a draggable position preview.\n    // See GuiEditHUDPosition for the shared position editor.\n}\n",
+
+  "gui-hud-pos": "package com.fishyfire.fishyfiremod.gui;\n\nimport net.minecraft.client.gui.GuiScreen;\n\n/**\n * Shared HUD position editor GUI.\n * Allows the player to drag HUD elements to\n * a custom on-screen position, with real-time\n * preview rendering.\n */\npublic class GuiEditHUDPosition extends GuiScreen {\n    // Draggable position editor with save/cancel.\n}\n",
+
+  "gui-tracker-pos": "package com.fishyfire.fishyfiremod.gui;\n\nimport net.minecraft.client.gui.GuiScreen;\n\n/**\n * Specialized position editor for the\n * PlayerTracker HUD overlay.\n */\npublic class GuiEditPlayerTrackerPosition extends GuiScreen {\n    // Extends the position editing concept\n    // for PlayerTracker-specific layout.\n}\n",
+
+  "gui-tracker": "package com.fishyfire.fishyfiremod.gui;\n\nimport com.fishyfire.fishyfiremod.hud.PlayerTrackerHUD;\nimport net.minecraft.client.gui.GuiScreen;\n\n/**\n * GUI for configuring PlayerTracker HUD:\n * team color choices, background toggle,\n * and position editing.\n */\npublic class GuiPlayerTrackerSettings extends GuiScreen {\n    // Settings screen with color dropdowns per team,\n    // background toggle, and position editor launcher.\n}\n"
+}
+  </script>
+
+  <script src="source-browser.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

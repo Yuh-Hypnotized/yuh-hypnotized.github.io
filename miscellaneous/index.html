@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miscellaneous · Yuh-Hypnotized</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="page-shell">
+
+    <nav class="topbar">
+      <a href="../index.html" class="brand">← Home</a>
+      <div class="nav-links">
+        <a href="../index.html#projects">Projects</a>
+        <a href="../fun/">🎮 Fun</a>
+        <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <section class="hero hero-new">
+      <div class="section-header" style="margin-bottom:0; text-align:left;">
+        <span class="section-tag">Portfolio</span>
+        <h2>🔧 Miscellaneous</h2>
+        <p class="section-desc" style="margin:8px 0 0;">Small utilities, scripts, and experiments — tiny tools that solve tiny problems.</p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="detail-grid">
+
+        <div class="detail-card">
+          <div class="detail-head">
+            <h3>ClipSync</h3>
+          </div>
+          <p>Cross-device clipboard sharing tool that works over LAN. Copy text on one machine and paste it on another — no cloud, no accounts, just a lightweight Go binary with end-to-end encryption for local network sharing.</p>
+          <div class="detail-meta">
+            <div class="detail-row"><span>Stack</span><strong>Go</strong></div>
+            <div class="detail-row"><span>Type</span><strong>Networking Tool</strong></div>
+            <div class="detail-row"><span>Status</span><strong>Working Prototype</strong></div>
+          </div>
+          <div class="project-tags"><span>Go</span><span>Net</span><span>Encryption</span></div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-head">
+            <h3>Img2ASCII</h3>
+          </div>
+          <p>A CLI tool that converts any image file into colored ASCII art rendered directly in the terminal. Supports JPEG, PNG, and GIF input, with options for character density, color mode, and output width.</p>
+          <div class="detail-meta">
+            <div class="detail-row"><span>Stack</span><strong>Python</strong></div>
+            <div class="detail-row"><span>Type</span><strong>CLI Utility</strong></div>
+            <div class="detail-row"><span>Status</span><strong>Complete</strong></div>
+          </div>
+          <div class="project-tags"><span>Python</span><span>CLI</span><span>Image Processing</span></div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-head">
+            <h3>TodoTUI</h3>
+          </div>
+          <p>A beautiful terminal-based todo application with Vim-style keybindings. Features include hierarchical task lists, due-date tracking, search/filter, and a command palette — all rendered with a custom TUI framework in Rust.</p>
+          <div class="detail-meta">
+            <div class="detail-row"><span>Stack</span><strong>Rust</strong></div>
+            <div class="detail-row"><span>Type</span><strong>TUI Application</strong></div>
+            <div class="detail-row"><span>Status</span><strong>In Progress</strong></div>
+          </div>
+          <div class="project-tags"><span>Rust</span><span>TUI</span><span>Vim</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+    </footer>
+
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

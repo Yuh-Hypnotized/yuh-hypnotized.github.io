@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MathematicalExpressionCalculator · Yuh-Hypnotized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <div class="page-shell page-shell-wide">
+    <nav class="topbar">
+      <a href="../index.html" class="brand">← Coursework</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../fun/">🎮 Fun</a>
+        <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <section class="hero hero-new">
+      <div class="section-header" style="margin-bottom:0; text-align:left;">
+        <span class="section-tag">Coursework · Data Structures</span>
+        <h2>Mathematical Expression Calculator</h2>
+        <p class="section-desc" style="margin:10px 0 0;">
+          A command-line mathematical expression evaluator implemented in <strong>C++</strong>. Parses and computes expressions with <strong>operator precedence</strong> (+, -, *, /, ^) and <strong>parentheses</strong> using dual-stack architecture (number stack + operator stack). Handles decimal numbers, right-associative exponentiation, and priority-based evaluation order with infix parsing.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+          <div class="project-tags"><span>C++</span><span>Stack</span><span>Parser</span><span>Math</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="source-browser">
+        <aside class="file-tree">
+          <div class="file-tree-header">
+            <span class="file-tree-icon">📁</span>
+            <span>MathematicalExpressionCalculator</span>
+          </div>
+          <ul class="tree-list">
+            <li class="tree-item tree-file active" data-file="main-cpp" style="padding-left:14px;">
+              <span class="tree-icon">⚙️</span> main.cpp
+            </li>
+            <li class="tree-item tree-file" data-file="headfile-h" style="padding-left:14px;">
+              <span class="tree-icon">📋</span> headfile.h
+            </li>
+          </ul>
+        </aside>
+
+        <main class="code-viewer">
+          <div class="code-header">
+            <span class="code-filename" id="code-filename">main.cpp</span>
+            <div class="code-header-right">
+              <button class="copy-btn" id="copy-btn" title="Copy source code">📋 Copy</button>
+              <span class="code-badge" id="code-badge">C++</span>
+            </div>
+          </div>
+          <div class="code-body">
+            <pre class="line-numbers"><code class="language-cpp" id="code-content">// Select a file from the tree →</code></pre>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Preview</span>
+        <h2>🖼️ Demo</h2>
+        <p class="section-desc" style="margin:8px 0 0;">See the calculator in action.</p>
+      </div>
+      <div class="demo-area">
+        <div class="demo-empty">
+          <span class="demo-empty-icon">📷</span>
+          <p>No demos available yet. Screenshots coming soon!</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script id="source-data" type="application/json">{"main-cpp":"#include \"headfile.h\"\n\nusing namespace std;\n\ndouble calculation(double num1, double num2, char operation);\nvoid calculate_in_loop(vector<double>& numbers, vector<char>& operation);\nvoid calculate_in_endings(vector<double>& numbers, vector<char>& operation, int index);\n\nint main() {\n    cout << \"Input your mathematical expression:\\n\"\n         << \"(capable for + - * / ^ and () operations!)\\n\" << endl;\n    string expression; cin >> expression;\n    vector<char> operation;   // operation stack\n    vector<double> numbers;   // number stack\n    int precision = 0;\n    for (auto element : expression) {\n        if ('0' <= element && element <= '9') {\n            // Input Situation 1: Number\n            if (operation.size() == 0) {\n                numbers.push_back(static_cast<double>(element) - 48);\n            } else {\n                if (operation.back() == '.') {\n                    // Check if it's getting a decimal number\n                    precision++;\n                    numbers.back() += (static_cast<double>(element) - 48) / pow(10, precision);\n                } else {\n                    numbers.push_back(static_cast<double>(element) - 48);\n                }\n            }\n        } else {\n            // Input Situation 2: Operation\n            if (operation.size() != 0) {\n                if (operation.back() == '.') {\n                    operation.pop_back();\n                    precision = 0;\n                }\n            }\n            // Priority 1: '.', '(', '^' push directly\n            if (element == '.' || element == '(' || element == '^') {\n                operation.push_back(element);\n            } else if (element == ')') {\n                // Calculate until hitting matching '('\n                while (operation.back() != '(') {\n                    calculate_in_loop(numbers, operation);\n                }\n                operation.pop_back();\n            } else if (element == '*' || element == '/') {\n                // Priority 2: '*' and '/'\n                if (operation.size() != 0) {\n                    if (operation.back() == '*' || operation.back() == '/' || operation.back() == '^')\n                        calculate_in_loop(numbers, operation);\n                }\n                operation.push_back(element);\n            } else {\n                // Priority 3: '+' and '-'\n                if (operation.size() != 0) {\n                    if (operation.back() != '(')\n                        calculate_in_loop(numbers, operation);\n                }\n                operation.push_back(element);\n            }\n        }\n    }\n    // Final: process remaining ops by priority\n    int index = operation.size() - 1;\n    for (index; index >= 0; index--) {\n        if (operation[index] == '^')\n            calculate_in_endings(numbers, operation, index);\n    }\n    index = 0;\n    for (index; index < operation.size(); index++) {\n        if (operation[index] == '*' || operation[index] == '/') {\n            calculate_in_endings(numbers, operation, index);\n            index--;\n        }\n    }\n    index = 0;\n    while (operation.size() != 0) {\n        calculate_in_endings(numbers, operation, index);\n    }\n    cout << \"The result is: \" << numbers.back() << endl;\n    return 0;\n}\n\ndouble calculation(double num1, double num2, char operation) {\n    switch (operation) {\n        case '+': return num1 + num2;\n        case '-': return num1 - num2;\n        case '*': return num1 * num2;\n        case '/': return num1 / num2;\n        case '^': return pow(num1, num2);\n        default: return 0;\n    }\n}\n\n// Calculate during main loop traversal\nvoid calculate_in_loop(vector<double>& numbers, vector<char>& operation) {\n    double assistNumber = calculation(numbers[numbers.size() - 2], numbers.back(), operation.back());\n    numbers.pop_back(); numbers.pop_back();\n    numbers.push_back(assistNumber);\n    operation.pop_back();\n}\n\n// Calculate with iterator after traversal ends\nvoid calculate_in_endings(vector<double>& numbers, vector<char>& operation, int index) {\n    double assistNumber = calculation(numbers[index], numbers[index + 1], operation[index]);\n    numbers.erase(numbers.begin() + index);\n    numbers.erase(numbers.begin() + index);\n    numbers.insert(numbers.begin() + index, assistNumber);\n    operation.erase(operation.begin() + index);\n}\n","headfile-h":"#include <cassert>\n#include <cctype>\n#include <cerrno>\n#include <cfloat>\n#include <ciso646>\n#include <climits>\n#include <clocale>\n#include <cmath>\n#include <csetjmp>\n#include <csignal>\n#include <cstdarg>\n#include <cstddef>\n#include <cstdio>\n#include <cstdlib>\n#include <cstring>\n#include <ctime>\n#include <ccomplex>\n#include <cfenv>\n#include <cinttypes>\n#include <cstdalign>\n#include <cstdbool>\n#include <cstdint>\n#include <ctgmath>\n#include <cwchar>\n#include <cwctype>\n\n#include <algorithm>\n#include <bitset>\n#include <complex>\n#include <deque>\n#include <exception>\n#include <fstream>\n#include <functional>\n#include <iomanip>\n#include <ios>\n#include <iosfwd>\n#include <iostream>\n#include <istream>\n#include <iterator>\n#include <limits>\n#include <list>\n#include <locale>\n#include <map>\n#include <memory>\n#include <new>\n#include <numeric>\n#include <ostream>\n#include <queue>\n#include <set>\n#include <sstream>\n#include <stack>\n#include <stdexcept>\n#include <streambuf>\n#include <string>\n#include <typeinfo>\n#include <utility>\n#include <valarray>\n#include <vector>\n\n#include <array>\n#include <atomic>\n#include <chrono>\n#include <condition_variable>\n#include <forward_list>\n#include <future>\n#include <initializer_list>\n#include <mutex>\n#include <random>\n#include <ratio>\n#include <regex>\n#include <scoped_allocator>\n#include <system_error>\n#include <thread>\n#include <tuple>\n#include <typeindex>\n#include <type_traits>\n#include <unordered_map>\n#include <unordered_set>\n"}</script>
+  <script src="source-browser.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FaceRecognitionPCA · Yuh-Hypnotized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <div class="page-shell page-shell-wide">
+    <nav class="topbar">
+      <a href="../index.html" class="brand">← Coursework</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../fun/">🎮 Fun</a>
+        <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <section class="hero hero-new">
+      <div class="section-header" style="margin-bottom:0; text-align:left;">
+        <span class="section-tag">Coursework · Pattern Recognition</span>
+        <h2>Face Recognition PCA</h2>
+        <p class="section-desc" style="margin:10px 0 0;">
+          Face recognition using <strong>PCA (Principal Component Analysis)</strong> eigenface method on the ORL face dataset, implemented in <strong>MATLAB</strong>. Computes eigenfaces via small-sample trick, projects training/test images into the PCA subspace, and classifies using nearest-neighbor. Achieves accuracy on the standard 40-person ORL benchmark with 8 train / 2 test split.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+          <div class="project-tags"><span>MATLAB</span><span>PCA</span><span>Eigenface</span><span>Classification</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Source Browser ====== -->
+    <section class="section-block">
+      <div class="source-browser">
+        <aside class="file-tree">
+          <div class="file-tree-header">
+            <span class="file-tree-icon">📁</span>
+            <span>FaceRecognitionPCA</span>
+          </div>
+          <ul class="tree-list">
+            <li class="tree-item tree-file active" data-file="Lab3-FacePCA-m" style="padding-left:14px;">
+              <span class="tree-icon">📊</span> Lab3_FacePCA.m
+            </li>
+          </ul>
+        </aside>
+
+        <main class="code-viewer">
+          <div class="code-header">
+            <span class="code-filename" id="code-filename">Lab3_FacePCA.m</span>
+            <div class="code-header-right">
+              <button class="copy-btn" id="copy-btn" title="Copy source code">📋 Copy</button>
+              <span class="code-badge" id="code-badge">MATLAB</span>
+            </div>
+          </div>
+          <div class="code-body">
+            <pre class="line-numbers"><code class="language-matlab" id="code-content">% Select a file from the tree →</code></pre>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <!-- ====== Demo Section ====== -->
+    <section class="section-block">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Preview</span>
+        <h2>🖼️ Demo</h2>
+        <p class="section-desc" style="margin:8px 0 0;">Eigenface visualization, test sample recognition results, and accuracy output.</p>
+      </div>
+      <div class="demo-gallery">
+        <div class="demo-img-card">
+          <a href="demo/1.png" target="_blank">
+            <img src="demo/1.png" alt="Eigenfaces" loading="lazy">
+          </a>
+          <span class="demo-caption">Eigenfaces (前16个特征脸)</span>
+        </div>
+        <div class="demo-img-card">
+          <a href="demo/2.png" target="_blank">
+            <img src="demo/2.png" alt="Test Sample" loading="lazy">
+          </a>
+          <span class="demo-caption">测试样本识别结果 ①</span>
+        </div>
+        <div class="demo-img-card">
+          <a href="demo/3.png" target="_blank">
+            <img src="demo/3.png" alt="Test Result 2" loading="lazy">
+          </a>
+          <span class="demo-caption">测试样本识别结果 ②</span>
+        </div>
+        <div class="demo-img-card">
+          <a href="demo/4.png" target="_blank">
+            <img src="demo/4.png" alt="Accuracy" loading="lazy">
+          </a>
+          <span class="demo-caption">识别准确率</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <style>
+    /* force Prism MATLAB to apply */
+    .code-body .token.keyword { color: #cc99cd !important; }
+    .code-body .token.comment { color: #999 !important; font-style: italic !important; }
+    .code-body .token.string { color: #7ec699 !important; }
+    .code-body .token.function { color: #f08d49 !important; }
+    .code-body .token.number { color: #f08d49 !important; }
+  </style>
+  <script id="source-data" type="application/json">{"Lab3-FacePCA-m":"clc;\nclear;\nclose all;\n\n%% ============ 1. Load ORL data ============\nload('ORL_64x64.mat');\n\n% Transpose so each column is one image\nX = double(fea)';       % 1024x400\nlabels = gnd;           % 400x1\n\nimgH = 64;\nimgW = 64;\nnumPerson = 40;\nnumPerPerson = 10;\ntrainNum = 8;           % training samples per person\ntestNum = 2;            % test samples per person\nk = 100;                % number of PCA components\n\n%% ============ 2. Train/test split ============\ntrainData = [];\ntrainLabel = [];\ntestData = [];\ntestLabel = [];\n\nfor i = 1:numPerson\n    idx = find(labels == i);\n    trainData = [trainData X(:, idx(1:trainNum))];\n    trainLabel = [trainLabel; labels(idx(1:trainNum))];\n\n    testData = [testData X(:, idx(trainNum+1:end))];\n    testLabel = [testLabel; labels(idx(trainNum+1:end))];\nend\n\n%% ============ 3. Mean centering ============\nmeanFace = mean(trainData, 2);\nA = trainData - meanFace;\n\n%% ============ 4. PCA / Eigenfaces ============\nL = A' * A;                   % small sample trick\n[V, D] = eig(L);\n\neigValues = diag(D);\n[~, idx] = sort(eigValues, 'descend');\nV = V(:, idx);\n\neigFaces = A * V;             % project back to high-dim\neigFaces = eigFaces(:, 1:k);\n\n% Normalize eigenfaces\nfor i = 1:k\n    eigFaces(:, i) = eigFaces(:, i) / norm(eigFaces(:, i));\nend\n\n%% ============ 5. Display top 16 eigenfaces ============\nfigure('Name','Eigenfaces');\nfor i = 1:min(16,k)\n    subplot(4,4,i);\n    img = reshape(eigFaces(:, i), imgH, imgW);\n    img = (img - min(img(:))) / (max(img(:)) - min(img(:)));\n    imagesc(img);\n    colormap(gray);\n    axis off;\n    title(['Eigenface ' num2str(i)]);\nend\nsgtitle('Top 16 Eigenfaces');\n\n%% ============ 6. Project training set ============\ntrainFeature = eigFaces' * A;\n\n%% ============ 7. Project test set ============\nB = testData - meanFace;\ntestFeature = eigFaces' * B;\n\n%% ============ 8. Nearest-neighbor classification ============\ncorrect = 0;\nnumTest = size(testFeature,2);\npredictedLabel = zeros(numTest,1);\n\nfor i = 1:numTest\n    dist = vecnorm(trainFeature - testFeature(:,i));\n    [~, minIdx] = min(dist);\n    predictedLabel(i) = trainLabel(minIdx);\n\n    if predictedLabel(i) == testLabel(i)\n        correct = correct + 1;\n    end\nend\n\naccuracy = correct / numTest * 100;\nfprintf('Overall recognition accuracy: %.2f%%\\n', accuracy);\n\n%% ============ 9. Visualize random test sample ============\nrng('shuffle');\nrandIdx = randi(numTest);\ntestImg = testData(:, randIdx);\ntestLab = testLabel(randIdx);\npredLab = predictedLabel(randIdx);\n\n% Find matching training sample\ndist = vecnorm(trainFeature - eigFaces'*(testImg - meanFace));\n[~, matchIdx] = min(dist);\nmatchImg = trainData(:, matchIdx);\n\nfigure('Name','Test Sample Recognition');\nsubplot(1,2,1);\nimagesc(reshape(testImg,imgH,imgW));\ncolormap(gray); axis off;\ntitle(['Test Face (true: ' num2str(testLab) ')']);\n\nsubplot(1,2,2);\nimagesc(reshape(matchImg,imgH,imgW));\ncolormap(gray); axis off;\ntitle(['Recognized (pred: ' num2str(predLab) ')']);\n"}</script>
+  <script src="source-browser.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -26,50 +26,79 @@
       <div class="section-header" style="margin-bottom:0; text-align:left;">
         <span class="section-tag">Portfolio</span>
         <h2>🔧 Miscellaneous</h2>
-        <p class="section-desc" style="margin:8px 0 0;">Small utilities, scripts, and experiments — tiny tools that solve tiny problems.</p>
+        <p class="section-desc" style="margin:8px 0 0;">A collection of small tools, bots, and algorithmic solvers — from a QQ chat bot to math utilities.</p>
       </div>
     </section>
 
     <section class="section-block">
       <div class="detail-grid">
 
-        <div class="detail-card">
+        <a href="24pointsSolver/" class="detail-card detail-card-link">
           <div class="detail-head">
-            <h3>ClipSync</h3>
+            <h3>24-Point Solver</h3>
           </div>
-          <p>Cross-device clipboard sharing tool that works over LAN. Copy text on one machine and paste it on another — no cloud, no accounts, just a lightweight Go binary with end-to-end encryption for local network sharing.</p>
+          <p>A brute-force recursive C++ solver for the classic 24-point math puzzle. Given 4 numbers (1–13), it enumerates all possible binary operation trees — trying every pair of numbers with +, -, *, / at each step — to find every valid expression that evaluates to 24. Outputs all solutions with fully parenthesized expressions showing the exact order of operations.</p>
           <div class="detail-meta">
-            <div class="detail-row"><span>Stack</span><strong>Go</strong></div>
-            <div class="detail-row"><span>Type</span><strong>Networking Tool</strong></div>
-            <div class="detail-row"><span>Status</span><strong>Working Prototype</strong></div>
+            <div class="detail-row"><span>Stack</span><strong>C++</strong></div>
+            <div class="detail-row"><span>Type</span><strong>Algorithm Solver</strong></div>
+            <div class="detail-row"><span>Method</span><strong>Recursive Enumeration</strong></div>
           </div>
-          <div class="project-tags"><span>Go</span><span>Net</span><span>Encryption</span></div>
-        </div>
+          <div class="project-tags"><span>C++</span><span>Recursion</span><span>Brute-Force</span><span>Math</span></div>
+          <div class="project-footer">
+            <span class="project-updated">Updated 2026.1.26</span>
+          </div>
+        </a>
 
-        <div class="detail-card">
+        <a href="yuhuoQQBot/" class="detail-card detail-card-link">
           <div class="detail-head">
-            <h3>Img2ASCII</h3>
+            <h3>yuhuo QQ Bot</h3>
           </div>
-          <p>A CLI tool that converts any image file into colored ASCII art rendered directly in the terminal. Supports JPEG, PNG, and GIF input, with options for character density, color mode, and output width.</p>
+          <p>A multi-module Mirai Console QQ bot plugin suite built with Java. Features include: a 24-point math game with expression validation, anti-recall message logging, interactive Gomoku (五子棋) with Java2D board rendering and player profiles, and a daily luck (人品) system with leaderboards. Modular architecture with shared Gson-based config loading and unified command dispatch.</p>
           <div class="detail-meta">
-            <div class="detail-row"><span>Stack</span><strong>Python</strong></div>
-            <div class="detail-row"><span>Type</span><strong>CLI Utility</strong></div>
-            <div class="detail-row"><span>Status</span><strong>Complete</strong></div>
+            <div class="detail-row"><span>Stack</span><strong>Java · Mirai Console</strong></div>
+            <div class="detail-row"><span>Type</span><strong>QQ Bot Plugin</strong></div>
+            <div class="detail-row"><span>Modules</span><strong>Core · 24pt · AntiRecall · Gobang · JRRP</strong></div>
           </div>
-          <div class="project-tags"><span>Python</span><span>CLI</span><span>Image Processing</span></div>
-        </div>
+          <div class="project-tags"><span>Java</span><span>Mirai</span><span>Gson</span><span>Java2D</span></div>
+          <div class="project-footer">
+            <span class="project-updated">Updated 2025.2.9</span>
+          </div>
+        </a>
 
-        <div class="detail-card">
+        <a href="BaseConverter/" class="detail-card detail-card-link">
           <div class="detail-head">
-            <h3>TodoTUI</h3>
+            <h3>Base Converter</h3>
           </div>
-          <p>A beautiful terminal-based todo application with Vim-style keybindings. Features include hierarchical task lists, due-date tracking, search/filter, and a command palette — all rendered with a custom TUI framework in Rust.</p>
+          <p>A GUI-based number base converter built with Qt5 C++. Converts numbers between any base from 2 to 16 (binary, octal, decimal, hexadecimal, and custom bases). Features input validation with error dialogs for invalid digits, an "About Me" window, and a responsive UI with custom resize handling across all widgets.</p>
           <div class="detail-meta">
-            <div class="detail-row"><span>Stack</span><strong>Rust</strong></div>
-            <div class="detail-row"><span>Type</span><strong>TUI Application</strong></div>
-            <div class="detail-row"><span>Status</span><strong>In Progress</strong></div>
+            <div class="detail-row"><span>Stack</span><strong>C++ · Qt5</strong></div>
+            <div class="detail-row"><span>Type</span><strong>GUI Utility</strong></div>
+            <div class="detail-row"><span>Range</span><strong>Base 2–16</strong></div>
           </div>
-          <div class="project-tags"><span>Rust</span><span>TUI</span><span>Vim</span></div>
+          <div class="project-tags"><span>C++</span><span>Qt5</span><span>GUI</span><span>Math</span></div>
+          <div class="project-footer">
+            <span class="project-updated">Updated 2024.11.4</span>
+          </div>
+        </a>
+
+        <a href="MatrixCalculator/" class="detail-card detail-card-link">
+          <div class="detail-head">
+            <h3>Matrix Calculator</h3>
+          </div>
+          <p>A comprehensive command-line C++ matrix calculator supporting 10 operations: transpose, row-minimalization (Gaussian elimination), addition, subtraction, multiplication, inversion, determinant, adjugate, linear system solving (Cramer's rule + free variables), and eigenvalue/eigenvector computation via sweep search. Features an interactive menu system with formatted output.</p>
+          <div class="detail-meta">
+            <div class="detail-row"><span>Stack</span><strong>C++</strong></div>
+            <div class="detail-row"><span>Type</span><strong>CLI Calculator</strong></div>
+            <div class="detail-row"><span>Topics</span><strong>Linear Algebra · Matrix Ops</strong></div>
+          </div>
+          <div class="project-tags"><span>C++</span><span>Matrix</span><span>Linear Algebra</span><span>CLI</span></div>
+          <div class="project-footer">
+            <span class="project-updated">Updated 2023.12.19</span>
+          </div>
+        </a>
+
+        <div class="detail-card detail-card-empty">
+          <p style="text-align:center; color:var(--text-soft); margin:0;">More coming soon...</p>
         </div>
 
       </div>

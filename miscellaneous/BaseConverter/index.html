@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BaseConverter · Yuh-Hypnotized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <div class="page-shell page-shell-wide">
+    <nav class="topbar">
+      <a href="../index.html" class="brand">← Miscellaneous</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../fun/">🎮 Fun</a>
+        <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <section class="hero hero-new">
+      <div class="section-header" style="margin-bottom:0; text-align:left;">
+        <span class="section-tag">Miscellaneous · Qt5 C++</span>
+        <h2>Base Converter</h2>
+        <p class="section-desc" style="margin:10px 0 0;">
+          A GUI-based number base converter built with <strong>Qt5 C++</strong>. Converts numbers between any base from 2 to 16 (binary, octal, decimal, hexadecimal, and custom). Features input validation with error dialogs, an "About Me" window, and a responsive UI with custom resize handling.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+          <div class="project-tags"><span>C++</span><span>Qt5</span><span>GUI</span><span>Math</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="source-browser">
+        <aside class="file-tree">
+          <div class="file-tree-header">
+            <span class="file-tree-icon">📁</span>
+            <span>BaseConverter</span>
+          </div>
+          <ul class="tree-list">
+            <li class="tree-item tree-file" data-file="main-cpp" style="padding-left:14px;">
+              <span class="tree-icon">⚙️</span> main.cpp
+            </li>
+            <li class="tree-item tree-file" data-file="mainwindow-h" style="padding-left:14px;">
+              <span class="tree-icon">🪟</span> mainwindow.h
+            </li>
+            <li class="tree-item tree-file active" data-file="mainwindow-cpp" style="padding-left:14px;">
+              <span class="tree-icon">🪟</span> mainwindow.cpp
+            </li>
+            <li class="tree-item tree-file" data-file="mainwindow-ui" style="padding-left:14px;">
+              <span class="tree-icon">🎨</span> mainwindow.ui
+            </li>
+            <li class="tree-item tree-file" data-file="aboutmewindow-h" style="padding-left:14px;">
+              <span class="tree-icon">ℹ️</span> aboutmewindow.h
+            </li>
+            <li class="tree-item tree-file" data-file="aboutmewindow-cpp" style="padding-left:14px;">
+              <span class="tree-icon">ℹ️</span> aboutmewindow.cpp
+            </li>
+            <li class="tree-item tree-file" data-file="errorwindow-h" style="padding-left:14px;">
+              <span class="tree-icon">⚠️</span> errorwindow.h
+            </li>
+            <li class="tree-item tree-file" data-file="errorwindow-cpp" style="padding-left:14px;">
+              <span class="tree-icon">⚠️</span> errorwindow.cpp
+            </li>
+            <li class="tree-item tree-file" data-file="BaseConverter-pro" style="padding-left:14px;">
+              <span class="tree-icon">🔧</span> BaseConverter.pro
+            </li>
+          </ul>
+        </aside>
+
+        <main class="code-viewer">
+          <div class="code-header">
+            <span class="code-filename" id="code-filename">mainwindow.cpp</span>
+            <div class="code-header-right">
+              <button class="copy-btn" id="copy-btn" title="Copy source code">📋 Copy</button>
+              <span class="code-badge" id="code-badge">C++</span>
+            </div>
+          </div>
+          <div class="code-body">
+            <pre class="line-numbers"><code class="language-cpp" id="code-content">// Select a file from the tree →</code></pre>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Preview</span>
+        <h2>🖼️ Demo</h2>
+        <p class="section-desc" style="margin:8px 0 0;">See the converter in action.</p>
+      </div>
+      <div class="demo-gallery">
+        <div class="demo-img-card">
+          <a href="demo/1.png" target="_blank">
+            <img src="demo/1.png" alt="Base Converter Screenshot" loading="lazy">
+          </a>
+          <span class="demo-caption">Application Screenshot</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script id="source-data" type="application/json">{"main-cpp":"#include \"mainwindow.h\"\n#include <QApplication>\n\nint main(int argc, char *argv[])\n{\n    QApplication a(argc, argv);\n    MainWindow w;\n    w.show();\n    return a.exec();\n}\n","mainwindow-h":"#ifndef MAINWINDOW_H\n#define MAINWINDOW_H\n\n#include <QMainWindow>\n\nQT_BEGIN_NAMESPACE\nnamespace Ui { class MainWindow; }\nQT_END_NAMESPACE\n\nclass MainWindow : public QMainWindow\n{\n    Q_OBJECT\n\npublic:\n    MainWindow(QWidget *parent = nullptr);\n    ~MainWindow();\n\nprivate:\n    Ui::MainWindow *ui;\n\nprotected:\n    virtual void resizeEvent(QResizeEvent *event) override;\n\nprivate slots:\n    void on_pushButtonExit_clicked();\n    void on_pushButtonConvert_clicked();\n    void on_pushButton_clicked();\n};\n#endif // MAINWINDOW_H\n","mainwindow-cpp":"#include \"mainwindow.h\"\n#include \"ui_mainwindow.h\"\n\n#include <QScreen>\n#include <QtMath>\n#include \"errorwindow.h\"\n#include \"aboutmewindow.h\"\n\nMainWindow::MainWindow(QWidget *parent)\n    : QMainWindow(parent)\n    , ui(new Ui::MainWindow)\n{\n    ui->setupUi(this);\n    setWindowTitle(\"Base Converter\");\n\n    QRect screenGeometry =\n        QGuiApplication::primaryScreen()->geometry();\n    int sw = screenGeometry.width();\n    int sh = screenGeometry.height();\n    this->resize(sw * 0.4, sh * 0.6);\n\n    // Populate base comboboxes (2–16)\n    QStringList items;\n    items << \"2(binary)\" << \"3\" << \"4\" << \"5\" << \"6\"\n          << \"7\" << \"8(octal)\" << \"9\" << \"10(decimal)\"\n          << \"11\" << \"12\" << \"13\" << \"14\" << \"15\"\n          << \"16(hex)\";\n    ui->comboBox_1->addItems(items);\n    ui->comboBox_2->addItems(items);\n}\n\nMainWindow::~MainWindow() { delete ui; }\n\nvoid MainWindow::resizeEvent(QResizeEvent *event)\n{\n    QMainWindow::resizeEvent(event);\n    int x = this->frameGeometry().width();\n    int y = this->frameGeometry().height();\n\n    QFont fontH(\"黑体\", x*0.02);\n    QFont fontT(\"黑体\", x*0.01);\n\n    ui->labelHeader->setFont(fontH);\n    ui->labelHeader->setGeometry(x*0.1,y*0.05,x*0.8,y*0.1);\n\n    ui->label_Enter->setFont(fontT);\n    ui->label_Enter->setGeometry(x*0.2,y*0.15,x*0.6,y*0.05);\n    ui->lineEditNum->setGeometry(x*0.2,y*0.2,x*0.6,y*0.07);\n\n    ui->label_firstBase->setFont(fontT);\n    ui->label_firstBase->setGeometry(x*0.2,y*0.27,x*0.6,y*0.05);\n    ui->comboBox_1->setGeometry(x*0.2,y*0.32,x*0.6,y*0.07);\n\n    ui->label_secBase->setFont(fontT);\n    ui->label_secBase->setGeometry(x*0.2,y*0.39,x*0.6,y*0.05);\n    ui->comboBox_2->setGeometry(x*0.2,y*0.44,x*0.6,y*0.07);\n\n    ui->pushButtonConvert->setGeometry(x*0.4,y*0.53,x*0.2,y*0.08);\n    ui->label_Result->setFont(fontT);\n    ui->label_Result->setGeometry(x*0.2,y*0.61,x*0.6,y*0.05);\n    ui->textBrowserResult->setGeometry(x*0.2,y*0.66,x*0.6,y*0.07);\n    ui->pushButtonExit->setGeometry(x*0.4,y*0.78,x*0.2,y*0.08);\n    ui->pushButton->setGeometry(x*0.8,y*0.8,x*0.1,y*0.08);\n}\n\nvoid MainWindow::on_pushButtonExit_clicked() { close(); }\n\n// Core conversion logic\nvoid MainWindow::on_pushButtonConvert_clicked()\n{\n    // Parse first base from combobox\n    int firstBase;\n    QString fb = ui->comboBox_1->currentText();\n    if (fb == \"2(binary)\") firstBase = 2;\n    else if (fb == \"8(octal)\") firstBase = 8;\n    else if (fb == \"10(decimal)\") firstBase = 10;\n    else if (fb == \"16(hex)\") firstBase = 16;\n    else firstBase = fb.toInt();\n\n    QString inputNum = ui->lineEditNum->text();\n\n    // Step 1: Validate input digits against base\n    bool valid = true;\n    for (auto digit : inputNum) {\n        if (!((digit >= 48 && digit <= 57) ||\n              (digit >= 65 && digit <= 70) ||\n              (digit >= 97 && digit <= 102))) {\n            valid = false; break;\n        }\n        int cur;\n        if (digit >= 97) cur = digit.unicode() - 87;\n        else if (digit >= 65) cur = digit.unicode() - 55;\n        else cur = digit.unicode() - 48;\n        if (cur >= firstBase) { valid = false; break; }\n    }\n\n    if (!valid) {\n        ErrorWindow ew(this); ew.exec();\n        return;\n    }\n\n    // Step 2: Parse second base\n    int secondBase;\n    QString sb = ui->comboBox_2->currentText();\n    if (sb == \"2(binary)\") secondBase = 2;\n    else if (sb == \"8(octal)\") secondBase = 8;\n    else if (sb == \"10(decimal)\") secondBase = 10;\n    else if (sb == \"16(hex)\") secondBase = 16;\n    else secondBase = sb.toInt();\n\n    if (firstBase == secondBase) {\n        ui->textBrowserResult->setText(inputNum);\n    } else if (firstBase == 10) {\n        // 10 -> X: repeated division\n        int num = inputNum.toInt();\n        QString result = \"\";\n        while (num > 0) {\n            int bit = num % secondBase;\n            num /= secondBase;\n            result.insert(0, QChar(bit < 10 ? bit+48 : bit+55));\n        }\n        ui->textBrowserResult->setText(result);\n    } else if (secondBase == 10) {\n        // X -> 10: positional sum\n        int result = 0;\n        for (int i = 0; i < inputNum.size(); i++) {\n            QChar d = inputNum[inputNum.size()-1-i];\n            int cur;\n            if (d >= 97) cur = d.unicode() - 87;\n            else if (d >= 65) cur = d.unicode() - 55;\n            else cur = d.unicode() - 48;\n            result += cur * pow(firstBase, i);\n        }\n        ui->textBrowserResult->setText(QString::number(result));\n    } else {\n        // X -> 10 -> Y (bridge)\n        int bridge = 0;\n        for (int i = 0; i < inputNum.size(); i++) {\n            QChar d = inputNum[inputNum.size()-1-i];\n            int cur;\n            if (d >= 97) cur = d.unicode() - 87;\n            else if (d >= 65) cur = d.unicode() - 55;\n            else cur = d.unicode() - 48;\n            bridge += cur * pow(firstBase, i);\n        }\n        QString result = \"\";\n        while (bridge > 0) {\n            int bit = bridge % secondBase;\n            bridge /= secondBase;\n            result.insert(0, QChar(bit < 10 ? bit+48 : bit+55));\n        }\n        ui->textBrowserResult->setText(result);\n    }\n}\n\nvoid MainWindow::on_pushButton_clicked()\n{\n    AboutMeWindow w(this); w.exec();\n}\n","mainwindow-ui":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<ui version=\"4.0\">\n <class>MainWindow</class>\n <widget class=\"QMainWindow\" name=\"MainWindow\">\n  <!-- Header label, number input, two base comboboxes,\n       Convert/Exit/About buttons, result text browser -->\n  <!-- Full .ui file in sourcecode/ -->\n </widget>\n</ui>\n","aboutmewindow-h":"#ifndef ABOUTMEWINDOW_H\n#define ABOUTMEWINDOW_H\n\n#include <QDialog>\n\nnamespace Ui {\nclass AboutMeWindow;\n}\n\nclass AboutMeWindow : public QDialog\n{\n    Q_OBJECT\n\npublic:\n    explicit AboutMeWindow(QWidget *parent = nullptr);\n    ~AboutMeWindow();\n\nprivate slots:\n    void on_pushButton_clicked();\n\nprivate:\n    Ui::AboutMeWindow *ui;\n\nprotected:\n    virtual void resizeEvent(QResizeEvent *event) override;\n};\n\n#endif // ABOUTMEWINDOW_H\n","aboutmewindow-cpp":"#include \"aboutmewindow.h\"\n#include \"ui_aboutmewindow.h\"\n#include <QScreen>\n\nAboutMeWindow::AboutMeWindow(QWidget *parent) :\n    QDialog(parent),\n    ui(new Ui::AboutMeWindow)\n{\n    ui->setupUi(this);\n    setWindowTitle(\"About Me\");\n    QRect sg = QGuiApplication::primaryScreen()->geometry();\n    this->resize(sg.width()*0.4, sg.height()*0.4);\n}\n\nAboutMeWindow::~AboutMeWindow() { delete ui; }\n\nvoid AboutMeWindow::on_pushButton_clicked() { close(); }\n\nvoid AboutMeWindow::resizeEvent(QResizeEvent *event)\n{\n    QDialog::resizeEvent(event);\n    int x = this->frameGeometry().width();\n    int y = this->frameGeometry().height();\n    QFont font(\"宋体\", x*0.015);\n    ui->label->setGeometry(x*0.1,y*0.2,x*0.8,y*0.1);\n    ui->label_2->setGeometry(x*0.1,y*0.3,x*0.8,y*0.1);\n    ui->label_3->setGeometry(x*0.3,y*0.37,x*0.6,y*0.1);\n    ui->label->setFont(font);\n    ui->label_2->setFont(font);\n    ui->label_3->setFont(font);\n    ui->pushButton->setGeometry(x*0.4,y*0.7,x*0.2,y*0.1);\n}\n","errorwindow-h":"#ifndef ERRORWINDOW_H\n#define ERRORWINDOW_H\n\n#include <QDialog>\n\nnamespace Ui {\nclass ErrorWindow;\n}\n\nclass ErrorWindow : public QDialog\n{\n    Q_OBJECT\n\npublic:\n    explicit ErrorWindow(QWidget *parent = nullptr);\n    ~ErrorWindow();\n\nprivate slots:\n    void on_pushButton_clicked();\n\nprivate:\n    Ui::ErrorWindow *ui;\n\nprotected:\n    virtual void resizeEvent(QResizeEvent *event) override;\n};\n\n#endif // ERRORWINDOW_H\n","errorwindow-cpp":"#include \"errorwindow.h\"\n#include \"ui_errorwindow.h\"\n#include <QScreen>\n\nErrorWindow::ErrorWindow(QWidget *parent) :\n    QDialog(parent),\n    ui(new Ui::ErrorWindow)\n{\n    ui->setupUi(this);\n    setWindowTitle(\"Error\");\n    QRect sg = QGuiApplication::primaryScreen()->geometry();\n    this->resize(sg.width()*0.4, sg.height()*0.4);\n}\n\nErrorWindow::~ErrorWindow() { delete ui; }\n\nvoid ErrorWindow::on_pushButton_clicked() { close(); }\n\nvoid ErrorWindow::resizeEvent(QResizeEvent *event)\n{\n    QDialog::resizeEvent(event);\n    int x = this->frameGeometry().width();\n    int y = this->frameGeometry().height();\n    QFont font(\"宋体\", x*0.015);\n    ui->label->setGeometry(x*0.2,y*0.2,x*0.7,y*0.1);\n    ui->label_2->setGeometry(x*0.2,y*0.4,x*0.7,y*0.1);\n    ui->label->setFont(font);\n    ui->label_2->setFont(font);\n    ui->pushButton->setGeometry(x*0.4,y*0.7,x*0.2,y*0.1);\n}\n","BaseConverter-pro":"QT += core gui widgets\n\nTARGET = BaseConverter\nTEMPLATE = app\n\nSOURCES += \\\n    main.cpp \\\n    mainwindow.cpp \\\n    aboutmewindow.cpp \\\n    errorwindow.cpp\n\nHEADERS += \\\n    mainwindow.h \\\n    aboutmewindow.h \\\n    errorwindow.h\n\nFORMS += \\\n    mainwindow.ui \\\n    aboutmewindow.ui \\\n    errorwindow.ui\n"}</script>
+  <script src="source-browser.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

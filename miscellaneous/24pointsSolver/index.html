@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24pointsSolver · Yuh-Hypnotized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <div class="page-shell page-shell-wide">
+    <nav class="topbar">
+      <a href="../index.html" class="brand">← Miscellaneous</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../fun/">🎮 Fun</a>
+        <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <section class="hero hero-new">
+      <div class="section-header" style="margin-bottom:0; text-align:left;">
+        <span class="section-tag">Miscellaneous · Algorithm</span>
+        <h2>24-Point Solver</h2>
+        <p class="section-desc" style="margin:10px 0 0;">
+          A <strong>C++</strong> brute-force recursive solver for the classic 24-point math puzzle. Given 4 numbers (1–13), it enumerates all possible binary operation trees using +, -, *, / to find every expression that evaluates to 24. Outputs all valid solutions with parenthesized expressions showing the exact order of operations.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+          <div class="project-tags"><span>C++</span><span>Recursion</span><span>Brute-Force</span><span>Math</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="source-browser">
+        <aside class="file-tree">
+          <div class="file-tree-header">
+            <span class="file-tree-icon">📁</span>
+            <span>24pointsSolver</span>
+          </div>
+          <ul class="tree-list">
+            <li class="tree-item tree-file active" data-file="24pointGamer-cpp" style="padding-left:14px;">
+              <span class="tree-icon">⚙️</span> 24pointGamer.cpp
+            </li>
+          </ul>
+        </aside>
+
+        <main class="code-viewer">
+          <div class="code-header">
+            <span class="code-filename" id="code-filename">24pointGamer.cpp</span>
+            <div class="code-header-right">
+              <button class="copy-btn" id="copy-btn" title="Copy source code">📋 Copy</button>
+              <span class="code-badge" id="code-badge">C++</span>
+            </div>
+          </div>
+          <div class="code-body">
+            <pre class="line-numbers"><code class="language-cpp" id="code-content">// Select a file from the tree →</code></pre>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <!-- ====== Demo ====== -->
+    <section class="section-block">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Preview</span>
+        <h2>📋 Demo</h2>
+        <p class="section-desc" style="margin:8px 0 0;">Example run: input four numbers and see all possible 24-point solutions.</p>
+      </div>
+      <div class="demo-io-pair">
+        <div class="demo-io-grid">
+          <div class="demo-io-block">
+            <div class="demo-io-title">📥 Input</div>
+            <pre class="demo-io-code">Enter 4 numbers from 1 to 13: 1 9 5 6</pre>
+          </div>
+          <div class="demo-io-arrow">→</div>
+          <div class="demo-io-block">
+            <div class="demo-io-title">📤 Output (39 solutions found)</div>
+            <pre class="demo-io-code">Solution 1: 6 * (1 * 9 - 5)
+Solution 2: (1 * 9 - 5) * 6
+Solution 3: 6 * (9 - 1 * 5)
+Solution 4: (9 - 1 * 5) * 6
+Solution 5: 1 * 6 * (9 - 5)
+Solution 6: (9 - 5) * 1 * 6
+Solution 7: 6 * (9 * 1 - 5)
+Solution 8: (9 * 1 - 5) * 6
+Solution 9: 6 * (9 / 1 - 5)
+Solution 10: (9 / 1 - 5) * 6
+...
+... and 29 more solutions</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script id="source-data" type="application/json">{"24pointGamer-cpp":"#include <iostream>\n#include <vector>\n#include <string>\n\nusing namespace std;\n\nstruct status\n{\n    vector<double> num;\n    vector<string> exprFrags;\n    int numCount;\n};\n\nvoid recursiveSearchFunc(vector<string>& solutionExprs, status& currentState)\n{\n    if (currentState.numCount == 1) {\n        if (currentState.num[0] == 24)\n            solutionExprs.push_back(currentState.exprFrags[0]);\n        return;\n    }\n\n    for (int i=0; i<currentState.numCount; i++) {\n        for (int j=0; j<currentState.numCount; j++) {\n            if (i == j) continue;\n            status nextState;\n            nextState.numCount = currentState.numCount - 1;\n            for (int k=0; k<currentState.numCount; k++) {\n                if (k != i && k != j) {\n                    nextState.num.push_back(currentState.num[k]);\n                    nextState.exprFrags.push_back(currentState.exprFrags[k]);\n                }\n            }\n\n            status nextState_plus = nextState;\n            nextState_plus.num.push_back(currentState.num[i] + currentState.num[j]);\n            nextState_plus.exprFrags.push_back(\"(\" + currentState.exprFrags[i] + \" + \" + currentState.exprFrags[j] + \")\");\n            recursiveSearchFunc(solutionExprs, nextState_plus);\n\n            status nextState_minus = nextState;\n            nextState_minus.num.push_back(currentState.num[i] - currentState.num[j]);\n            nextState_minus.exprFrags.push_back(\"(\" + currentState.exprFrags[i] + \" - \" + currentState.exprFrags[j] + \")\");\n            recursiveSearchFunc(solutionExprs, nextState_minus);\n\n            status nextState_mult = nextState;\n            nextState_mult.num.push_back(currentState.num[i] * currentState.num[j]);\n            nextState_mult.exprFrags.push_back(currentState.exprFrags[i] + \" * \" + currentState.exprFrags[j]);\n            recursiveSearchFunc(solutionExprs, nextState_mult);\n\n            status nextState_div = nextState;\n            nextState_div.num.push_back(currentState.num[i] / currentState.num[j]);\n            nextState_div.exprFrags.push_back(currentState.exprFrags[i] + \" / \" + currentState.exprFrags[j]);\n            recursiveSearchFunc(solutionExprs, nextState_div);\n        }\n    }\n\n}\n\n\nint main()\n{\n    cout<<\"Enter 4 numbers from 1 to 13: \";\n    double num1, num2, num3, num4;\n    cin>>num1>>num2>>num3>>num4;\n    vector<string> solutionExprs = {};\n\n    status currentState = {{num1, num2, num3, num4},\n    {to_string(int(num1)), to_string(int(num2)), to_string(int(num3)), to_string(int(num4))}, 4};\n\n    recursiveSearchFunc(solutionExprs, currentState);\n\n    if (solutionExprs.size() == 0) cout<<\"No solution has been found!\"<<endl;\n    else {\n        for (int i=0; i<solutionExprs.size(); i++)\n            cout<<\"Solution \"<<i+1<<\": \"<<solutionExprs[i]<<endl;\n    }\n\n    int exit; cin>>exit;\n    if (exit == 0) return 0;\n    else cin>>exit;\n}\n"}</script>
+  <script src="source-browser.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

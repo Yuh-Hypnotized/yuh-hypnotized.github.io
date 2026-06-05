@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MatrixCalculator · Yuh-Hypnotized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <div class="page-shell page-shell-wide">
+    <nav class="topbar">
+      <a href="../index.html" class="brand">← Miscellaneous</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../fun/">🎮 Fun</a>
+        <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <section class="hero hero-new">
+      <div class="section-header" style="margin-bottom:0; text-align:left;">
+        <span class="section-tag">Miscellaneous · Linear Algebra</span>
+        <h2>Matrix Calculator</h2>
+        <p class="section-desc" style="margin:10px 0 0;">
+          A comprehensive command-line <strong>C++</strong> matrix calculator supporting 10 operations: transpose, row-minimalization (Gaussian elimination), addition, subtraction, multiplication, inversion, determinant, adjugate matrix, linear system solving (Cramer's rule + Gaussian elimination with free variables), and eigenvalue/eigenvector computation via sweep search. Features an interactive menu system with input validation and formatted output.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+          <div class="project-tags"><span>C++</span><span>Matrix</span><span>Linear Algebra</span><span>CLI</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="source-browser">
+        <aside class="file-tree">
+          <div class="file-tree-header">
+            <span class="file-tree-icon">📁</span>
+            <span>MatrixCalculator</span>
+          </div>
+          <ul class="tree-list">
+            <li class="tree-item tree-file active" data-file="Matrix-h" style="padding-left:14px;">
+              <span class="tree-icon">📋</span> Matrix.h
+            </li>
+            <li class="tree-item tree-file" data-file="Matrix-cpp" style="padding-left:14px;">
+              <span class="tree-icon">⚙️</span> Matrix.cpp
+            </li>
+            <li class="tree-item tree-file" data-file="Matrix-Test1-cpp" style="padding-left:14px;">
+              <span class="tree-icon">🧪</span> Matrix_Test1.cpp
+            </li>
+          </ul>
+        </aside>
+
+        <main class="code-viewer">
+          <div class="code-header">
+            <span class="code-filename" id="code-filename">Matrix.h</span>
+            <div class="code-header-right">
+              <button class="copy-btn" id="copy-btn" title="Copy source code">📋 Copy</button>
+              <span class="code-badge" id="code-badge">C++</span>
+            </div>
+          </div>
+          <div class="code-body">
+            <pre class="line-numbers"><code class="language-cpp" id="code-content">// Select a file from the tree →</code></pre>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Preview</span>
+        <h2>🖼️ Demo</h2>
+        <p class="section-desc" style="margin:8px 0 0;">See the calculator in action.</p>
+      </div>
+      <div class="demo-area">
+        <div class="demo-empty">
+          <span class="demo-empty-icon">📷</span>
+          <p>No demos available yet. Screenshots coming soon!</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script id="source-data" type="application/json">{"Matrix-h":"// Matrix class declarations\n#include <array>\n#include <vector>\n#include <any>\n\nclass Matrix {\npublic:\n    int row, column;\n    std::array<std::array<double, 20>, 20> matrixA = {};\n\n    Matrix(int row_input, int column_input);\n    void setMatrixValue(std::array<std::array<double, 20>, 20> matrix_input,\n                        int row_input, int column_input);\n    void printMatrix() const;\n\n    // Basic operations\n    void matrixTranspose();\n    void matrixAddition(std::array<std::array<double, 20>, 20> m1,\n                        std::array<std::array<double, 20>, 20> m2,\n                        int r, int c);\n    void matrixSubtraction(std::array<std::array<double, 20>, 20> m1,\n                           std::array<std::array<double, 20>, 20> m2,\n                           int r, int c);\n    void matrixMultiplication(std::array<std::array<double, 20>, 20> m1,\n                              std::array<std::array<double, 20>, 20> m2,\n                              int r1, int c1, int c2);\n\n    // Advanced operations\n    void inverseMatrix();\n    double matrixDeterminant();\n    double cofactor(int a, int b);\n    void adjugateMatrix();\n    std::any linearSolution(std::vector<double> const_vec, int& solutionType);\n    std::vector<bool> rowMinimalize();\n    void eigenvector();\nprivate:\n};\n","Matrix-cpp":"// Matrix class definitions\n#include <iostream>\n#include <iomanip>\n#include <cmath>\n#include <vector>\n#include \"Matrix.h\"\n\n#define MIN_FIND -20\n#define MAX_FIND 20\n#define STEP 0.01\n#define ERROR 0.00001\n\nusing namespace std;\n\nMatrix::Matrix(int row_input, int column_input)\n    : row(row_input), column(column_input) {}\n\nvoid Matrix::setMatrixValue(array<array<double,20>,20> matrix_input,\n                            int row_input, int column_input) {\n    row = row_input; column = column_input;\n    for (int i = 0; i < row; i++)\n        for (int j = 0; j < column; j++)\n            matrixA[i][j] = matrix_input[i][j];\n}\n\nvoid Matrix::printMatrix() const {\n    for (int i = 0; i < row; i++) {\n        for (int j = 0; j < column; j++)\n            cout << setw(8) << matrixA[i][j] << \" \";\n        cout << endl;\n    }\n    cout << \"\\n\\n\" << endl;\n}\n\n// Transpose: swap row/col indices\nvoid Matrix::matrixTranspose() {\n    array<array<double,20>,20> tmp = {};\n    for (int i = 0; i < row; i++)\n        for (int j = 0; j < column; j++)\n            tmp[j][i] = matrixA[i][j];\n    for (int i = 0; i < column; i++)\n        for (int j = 0; j < row; j++)\n            matrixA[i][j] = tmp[i][j];\n    swap(row, column);\n}\n\n// Addition: element-wise sum\nvoid Matrix::matrixAddition(array<array<double,20>,20> m1,\n                            array<array<double,20>,20> m2,\n                            int r, int c) {\n    array<array<double,20>,20> result = {};\n    for (int i = 0; i < r; i++)\n        for (int j = 0; j < c; j++)\n            result[i][j] = m1[i][j] + m2[i][j];\n    setMatrixValue(result, r, c);\n}\n\n// Subtraction: element-wise difference\nvoid Matrix::matrixSubtraction(array<array<double,20>,20> m1,\n                               array<array<double,20>,20> m2,\n                               int r, int c) {\n    array<array<double,20>,20> result = {};\n    for (int i = 0; i < r; i++)\n        for (int j = 0; j < c; j++)\n            result[i][j] = m1[i][j] - m2[i][j];\n    setMatrixValue(result, r, c);\n}\n\n// Multiplication: C[i][j] = sum_k A[i][k] * B[k][j]\nvoid Matrix::matrixMultiplication(array<array<double,20>,20> m1,\n                                  array<array<double,20>,20> m2,\n                                  int r1, int c1, int c2) {\n    array<array<double,20>,20> result = {};\n    for (int i = 0; i < r1; i++)\n        for (int j = 0; j < c2; j++) {\n            result[i][j] = 0;\n            for (int k = 0; k < c1; k++)\n                result[i][j] += m1[i][k] * m2[k][j];\n        }\n    setMatrixValue(result, r1, c2);\n}\n\n// Inverse: A^-1 = (1/det) * adj(A)\nvoid Matrix::inverseMatrix() {\n    double det = matrixDeterminant();\n    adjugateMatrix();\n    for (int i = 0; i < row; i++)\n        for (int j = 0; j < row; j++)\n            matrixA[i][j] /= det;\n}\n\n// Determinant via recursive cofactor expansion\ndouble Matrix::matrixDeterminant() {\n    if (row == 2)\n        return matrixA[0][0]*matrixA[1][1] - matrixA[0][1]*matrixA[1][0];\n    if (row > 2) {\n        double sum = 0;\n        for (int i = 0; i < row; i++) {\n            Matrix sub(row-1, row-1);\n            for (int j = 1; j < row; j++) {\n                int skip = 0;\n                for (int k = 0; k < row; k++) {\n                    if (k == i) { k++; skip = 1; }\n                    sub.matrixA[j-1][k-skip] = matrixA[j][k];\n                }\n            }\n            sum += matrixA[0][i] * pow(-1,i) * sub.matrixDeterminant();\n        }\n        return sum;\n    }\n    return matrixA[0][0];\n}\n\n// Cofactor C_ab\ndouble Matrix::cofactor(int a, int b) {\n    Matrix sub(row-1, column-1);\n    int rSkip = 0;\n    for (int i = 0; i < row; i++) {\n        if (i == a-1) { i++; rSkip = 1; }\n        int cSkip = 0;\n        for (int j = 0; j < row; j++) {\n            if (j == b-1) { j++; cSkip = 1; }\n            sub.matrixA[i-rSkip][j-cSkip] = matrixA[i][j];\n        }\n    }\n    return sub.matrixDeterminant() * pow(-1, a+b);\n}\n\n// Adjugate: transpose of cofactor matrix\nvoid Matrix::adjugateMatrix() {\n    array<array<double,20>,20> adj = {};\n    for (int i = 0; i < row; i++)\n        for (int j = 0; j < column; j++)\n            adj[i][j] = cofactor(j+1, i+1);\n    setMatrixValue(adj, row, row);\n}\n\n// Linear system solver (Cramer's rule + Gaussian elimination)\nany Matrix::linearSolution(vector<double> const_vec, int& solType) {\n    // ... full implementation: Cramer's rule for det≠0,\n    // Gaussian elimination + free variables for det=0\n    // Returns single solution, basic solution set, or unsolvable\n    // See full source for complete implementation\n}\n\n// Row-minimalization via Gaussian elimination\nvector<bool> Matrix::rowMinimalize() {\n    // ... forward elimination + back substitution\n    // Returns free-variable flags for each column\n    // See full source for complete implementation\n}\n\n// Eigenvalue/eigenvector via sweep search\nvoid Matrix::eigenvector() {\n    // ... sweep from MIN_FIND to MAX_FIND with step STEP\n    // Checks det(A - lambda*I) < ERROR for eigenvalues\n    // Solves (A - lambda*I)x = 0 for each eigenvalue\n    // See full source for complete implementation\n}\n","Matrix-Test1-cpp":"#include <iostream>\n#include <Windows.h>\n#include <iomanip>\n#include <vector>\n#include \"Matrix.h\"\nusing namespace std;\n\nint main() {\n    int choice = -1;\n    bool running = true;\n\n    cout << \"====================\\n\"\n         << \"Read before use:\\n\"\n         << \"This program handles matrices up to 20x20.\\n\"\n         << \"Follow the prompts when using the calculator.\\n\"\n         << \"====================\\n\"\n         << \"Understand? (type 'Y' for yes): \";\n\n    char ok; cin >> ok;\n    if (ok != 'Y') {\n        cout << \"\\nProgram exited.\\n\";\n        return 0;\n    }\n\n    while (running) {\n        cout << \"\\n====================\\n\"\n             << \" 1: Transpose           2: Row-Minimalization\\n\"\n             << \" 3: Addition            4: Subtraction\\n\"\n             << \" 5: Multiplication      6: Inversion\\n\"\n             << \" 7: Determinant         8: Adjugate\\n\"\n             << \" 9: Linear Equations   10: Eigenvalues & Vectors\\n\"\n             << \"-1: Exit\\n\"\n             << \"\\nSelect operation: \";\n        cin >> choice;\n\n        if (choice == -1) {\n            running = false;\n            cout << \"Exiting...\\n\";\n            break;\n        }\n\n        // Each case reads matrix dimensions and values,\n        // calls the appropriate Matrix method, and prints results.\n        // Operations 1-2,6-8,10: single square matrix input\n        // Operations 3-5: two matrices with size validation\n        // Operation 9: augmented matrix [A|b] input\n        // See full source for interactive menu implementation\n    }\n    return 0;\n}\n"}</script>
+  <script src="source-browser.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

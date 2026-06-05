@@ -1047,9 +1047,9 @@ body::before {
 }
 
 .reaction-box.waiting {
-  background: rgba(34,197,94,0.08);
-  border-color: rgba(34,197,94,0.3);
-  animation: pulse-border 1.5s ease-in-out infinite;
+  background: rgba(239,68,68,0.08);
+  border-color: rgba(239,68,68,0.3);
+  animation: pulse-border-red 1.5s ease-in-out infinite;
 }
 
 .reaction-box.ready {
@@ -1622,6 +1622,11 @@ body::before {
 @keyframes pulse-border {
   0%, 100% { border-color: rgba(34,197,94,0.2); }
   50% { border-color: rgba(34,197,94,0.5); }
+}
+
+@keyframes pulse-border-red {
+  0%, 100% { border-color: rgba(239,68,68,0.2); }
+  50% { border-color: rgba(239,68,68,0.55); }
 }
 
 @keyframes shake {

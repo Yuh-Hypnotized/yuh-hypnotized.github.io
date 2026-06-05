@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PatternRecognitionLab · Yuh-Hypnotized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <div class="page-shell page-shell-wide">
+    <nav class="topbar">
+      <a href="../index.html" class="brand">← Coursework</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../fun/">🎮 Fun</a>
+        <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <section class="hero hero-new">
+      <div class="section-header" style="margin-bottom:0; text-align:left;">
+        <span class="section-tag">Coursework · Pattern Recognition</span>
+        <h2>Pattern Recognition Lab</h2>
+        <p class="section-desc" style="margin:10px 0 0;">
+          Pattern recognition course lab exercises implementing two classic algorithms in <strong>C++</strong>: <strong>K-Means clustering</strong> (unsupervised learning, dynamically groups 2D points into K clusters with iterative center refinement) and <strong>Perceptron</strong> (supervised binary linear classifier, iteratively adjusts weight vector on misclassified samples with fixed increment correction).
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+          <div class="project-tags"><span>C++</span><span>ML</span><span>Clustering</span><span>Classification</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="source-browser">
+        <aside class="file-tree">
+          <div class="file-tree-header">
+            <span class="file-tree-icon">📁</span>
+            <span>PatternRecognitionLab</span>
+          </div>
+          <ul class="tree-list">
+            <li class="tree-item tree-folder" style="padding-left:14px;">
+              <span class="tree-icon">📂</span> sourcecode/
+            </li>
+            <li class="tree-item tree-file active" data-file="Lab1-Kmeans-cpp" style="padding-left:34px;">
+              <span class="tree-icon">⚙️</span> Lab1_Kmeans.cpp
+            </li>
+            <li class="tree-item tree-file" data-file="Lab2-Perceptron-cpp" style="padding-left:34px;">
+              <span class="tree-icon">⚙️</span> Lab2_Perceptron.cpp
+            </li>
+          </ul>
+        </aside>
+
+        <main class="code-viewer">
+          <div class="code-header">
+            <span class="code-filename" id="code-filename">Lab1_Kmeans.cpp</span>
+            <div class="code-header-right">
+              <button class="copy-btn" id="copy-btn" title="Copy source code">📋 Copy</button>
+              <span class="code-badge" id="code-badge">C++</span>
+            </div>
+          </div>
+          <div class="code-body">
+            <pre class="line-numbers"><code class="language-cpp" id="code-content">// Select a file from the tree →</code></pre>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Preview</span>
+        <h2>🖼️ Demo</h2>
+        <p class="section-desc" style="margin:8px 0 0;">See the algorithms in action.</p>
+      </div>
+      <div class="demo-area">
+        <div class="demo-empty">
+          <span class="demo-empty-icon">📷</span>
+          <p>No demos available yet. Screenshots coming soon!</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script id="source-data" type="application/json">{"Lab1-Kmeans-cpp":"#include <iostream>\n#include <vector>\n#include <cmath>\n#include <limits>\n\nusing namespace std;\n\nstruct Point {\n    double x, y;\n    int cluster;\n};\n\ndouble distance(const Point& a, const Point& b) {\n    return sqrt((a.x - b.x) * (a.x - b.x) +\n                (a.y - b.y) * (a.y - b.y));\n}\n\nint main() {\n    // init\n    vector<Point> points = {\n        {0, 0, -1}, {3, 8, -1}, {2, 2, -1}, {1, 1, -1},\n        {5, 3, -1}, {4, 8, -1}, {6, 3, -1}, {5, 4, -1},\n        {6, 4, -1}, {7, 5, -1}\n    };\n\n    const int K = 2;\n\n    // centers\n    vector<Point> centers;\n    for (int i=0; i<K; i++){\n        centers.push_back(points[i]);\n    }\n\n    bool changed = true;\n    int iteration = 0;\n\n    while (changed) {\n        changed = false;\n        iteration++;\n\n        // assign samples\n        for (auto& p : points) {\n            double minDist = numeric_limits<double>::max();\n            int bestCluster = -1;\n\n            for (int i = 0; i < K; i++) {\n                double d = distance(p, centers[i]);\n                if (d < minDist) {\n                    minDist = d;\n                    bestCluster = i;\n                }\n            }\n\n            if (p.cluster != bestCluster) {\n                p.cluster = bestCluster;\n                changed = true;\n            }\n        }\n\n        // update cluster centers\n        vector<double> sumX(K, 0), sumY(K, 0);\n        vector<int> count(K, 0);\n\n        for (const auto& p : points) {\n            sumX[p.cluster] += p.x;\n            sumY[p.cluster] += p.y;\n            count[p.cluster]++;\n        }\n\n        for (int i = 0; i < K; i++) {\n            centers[i].x = sumX[i] / count[i];\n            centers[i].y = sumY[i] / count[i];\n        }\n    }\n\n    // output\n    cout << \"Iterations: \" << iteration << endl;\n    for (int i = 0; i < K; i++) {\n        cout << \"Cluster \" << i + 1 << \" center: (\"\n             << centers[i].x << \", \"\n             << centers[i].y << \")\" << endl;\n    }\n\n    cout << \"\\nSample results:\\n\";\n    for (int i = 0; i < points.size(); i++) {\n        cout << \"x\" << i + 1 << \" (\"\n             << points[i].x << \", \"\n             << points[i].y << \") -> Cluster \"\n             << points[i].cluster + 1 << endl;\n    }\n\n    return 0;\n}\n","Lab2-Perceptron-cpp":"#include <iostream>\n#include <vector>\nusing namespace std;\n\n// dot product\nint dot(const vector<int>& w, const vector<int>& x) {\n    int sum = 0;\n    for (int i = 0; i < w.size(); i++)\n        sum += w[i] * x[i];\n    return sum;\n}\n\nvoid outputVec(const vector<int>& w) {\n    cout << \"[\" << w[0];\n    for (int i = 1; i<w.size(); i++) {\n        cout << \", \" << w[i];\n    }\n    cout<< \"]\" << endl;\n}\n\nint main() {\n    vector<int> W = { -1, -2, -2, 0 };\n\n    vector<vector<int>> X = {\n        // ω1\n        {0, 0, 0,  1},\n        {1, 0, 0,  1},\n        {1, 0, 1,  1},\n        {1, 1, 0,  1},\n\n        // ω2\n        {0, 0, 1, -1},\n        {0, 1, 1, -1},\n        {0, 1, 0, -1},\n        {1, 1, 1, -1},\n        {2,20,1,-1}\n    };\n\n    const int c = 1;\n    bool hasError;\n    int iter = 0;\n\n    cout << \"W(1) = \";\n    int index = 2;\n    outputVec(W);\n\n    do {\n        hasError = false;\n        iter++;\n        cout << \"\\nIteration \" << iter << endl;\n\n        for (auto& x : X) {\n            int g = dot(W, x);\n            if (g < 0) {  // err\n                for (int i = 0; i < W.size(); i++) {\n                    W[i] += c * x[i];\n                }\n                hasError = true;\n            }\n            cout << \"W(\" << index++ << \") = \";\n            outputVec(W);\n        }\n\n    } while (hasError);\n\n    cout << \"\\n\\nTraining finished.\" << endl;\n    cout << \"Final W = \";\n    outputVec(W);\n\n    return 0;\n}\n"}</script>
+  <script src="source-browser.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

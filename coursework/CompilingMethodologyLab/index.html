@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CompilingMethodologyLab · Yuh-Hypnotized</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <div class="page-shell page-shell-wide">
+    <nav class="topbar">
+      <a href="../index.html" class="brand">← Coursework</a>
+      <div class="nav-links">
+        <a href="../../index.html">Home</a>
+        <a href="../../fun/">🎮 Fun</a>
+        <a href="https://github.com/Yuh-Hypnotized" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+
+    <section class="hero hero-new">
+      <div class="section-header" style="margin-bottom:0; text-align:left;">
+        <span class="section-tag">Coursework · Compiler Design</span>
+        <h2>Compiling Methodology Lab</h2>
+        <p class="section-desc" style="margin:10px 0 0;">
+          Two compiler front-end components implemented in <strong>C++</strong>: a <strong>Lexical Analyzer</strong> that tokenizes source code (identifiers, keywords, integers, operators, delimiters, comments) with line/column tracking, and an <strong>LL(1) Syntax Parser</strong> that performs predictive table-driven parsing with a step-by-step derivation trace. Both read from text input and produce structured output.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+          <div class="project-tags"><span>C++</span><span>Lexer</span><span>Parser</span><span>LL(1)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Source Browser ====== -->
+    <section class="section-block">
+      <div class="source-browser">
+        <aside class="file-tree">
+          <div class="file-tree-header">
+            <span class="file-tree-icon">📁</span>
+            <span>CompilingMethodologyLab</span>
+          </div>
+          <ul class="tree-list">
+            <li class="tree-item tree-file active" data-file="Lab1-LexicalAnalyzer-cpp" style="padding-left:14px;">
+              <span class="tree-icon">🔤</span> Lab1_LexicalAnalyzer.cpp
+            </li>
+            <li class="tree-item tree-file" data-file="Lab2-SyntaxParser-cpp" style="padding-left:14px;">
+              <span class="tree-icon">🌳</span> Lab2_SyntaxParser.cpp
+            </li>
+          </ul>
+        </aside>
+
+        <main class="code-viewer">
+          <div class="code-header">
+            <span class="code-filename" id="code-filename">Lab1_LexicalAnalyzer.cpp</span>
+            <div class="code-header-right">
+              <button class="copy-btn" id="copy-btn" title="Copy source code">📋 Copy</button>
+              <span class="code-badge" id="code-badge">C++</span>
+            </div>
+          </div>
+          <div class="code-body">
+            <pre class="line-numbers"><code class="language-cpp" id="code-content">// Select a file from the tree →</code></pre>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <!-- ====== Demo Section ====== -->
+    <section class="section-block">
+      <div class="section-header" style="text-align:left;">
+        <span class="section-tag">Preview</span>
+        <h2>📋 Demo</h2>
+        <p class="section-desc" style="margin:8px 0 0;">Input test programs and their corresponding analyzer outputs.</p>
+      </div>
+
+      <!-- Pair 1: Lexical Analysis -->
+      <div class="demo-io-pair">
+        <div class="demo-io-header">
+          <span class="demo-io-label">🔤 Lexical Analysis</span>
+        </div>
+        <div class="demo-io-grid">
+          <div class="demo-io-block">
+            <div class="demo-io-title">📥 Input</div>
+            <pre class="demo-io-code">/* ===== Lexical Analyzer Test Program =====
+ * Purpose:
+ *   Test identifiers, integers, operators,
+ *   delimiters, comments, and lexical errors
+ */
+
+{
+    // variable initialization
+    _count = 10;
+    totalSum = 0;
+
+    // arithmetic expression
+    totalSum = _count * 2 + 15 / 3 - 1;
+
+    /* conditional tests */
+    if (totalSum >= 20) {
+        result = 1;
+    }
+
+    if (totalSum <  50) {
+        result = 2;
+    }
+
+    if (totalSum == 24) {
+        result = 3;
+    }
+
+    if (totalSum != 0) {
+        result = result - 1;
+    }
+
+    // loop test
+    while (result > 0)
+        result = result - 1;
+
+    a1, b_2, c3;
+    value = (3 + 5) * (8 - 6);
+}
+
+// lexical error test (should stop here)
+illegalVar = 100 $ 200;</pre>
+          </div>
+          <div class="demo-io-arrow">→</div>
+          <div class="demo-io-block">
+            <div class="demo-io-title">📤 Output</div>
+            <pre class="demo-io-code">Line  Col  Type         Value
+  7    1  LBRACE       {
+  9    5  IDENTIFIER   _count
+  9   12  ASSIGN       =
+  9   14  INT          10
+  ...
+ 16    5  KEYWORD      if
+ 33    5  KEYWORD      while
+ 42    5  IDENTIFIER   a1
+ 43    5  IDENTIFIER   value
+ ...
+ 47    1  IDENTIFIER   illegalVar
+Lexical Error at line 47, column 18:
+  illegal character '$'</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pair 2: Syntax Analysis -->
+      <div class="demo-io-pair">
+        <div class="demo-io-header">
+          <span class="demo-io-label">🌳 LL(1) Syntax Parsing</span>
+        </div>
+        <div class="demo-io-grid">
+          <div class="demo-io-block">
+            <div class="demo-io-title">📥 Input</div>
+            <pre class="demo-io-code">ID ASSIGN INT PLUS INT SEMI</pre>
+          </div>
+          <div class="demo-io-arrow">→</div>
+          <div class="demo-io-block">
+            <div class="demo-io-title">📤 Output</div>
+            <pre class="demo-io-code">Stack                     Input                    Action
+-----------------------------------------------------------
+Program $                 ID ASSIGN ...            Program → Stmt
+Stmt $                    ID ASSIGN ...            Stmt → ID ASSIGN Expr SEMI
+ID ASSIGN Expr SEMI $     ID ASSIGN ...            match ID
+ASSIGN Expr SEMI $        ASSIGN ...               match ASSIGN
+Expr SEMI $               INT PLUS ...             Expr → Term Expr'
+Term Expr' SEMI $         INT PLUS ...             Term → INT
+INT Expr' SEMI $          INT PLUS ...             match INT
+Expr' SEMI $              PLUS INT ...             Expr' → PLUS Term Expr'
+PLUS Term Expr' SEMI $    PLUS INT ...             match PLUS
+Term Expr' SEMI $         INT SEMI $               Term → INT
+INT Expr' SEMI $          INT SEMI $               match INT
+Expr' SEMI $              SEMI $                   Expr' → ε
+SEMI $                    SEMI $                   match SEMI
+$                         $                        Parsing completed ✓
+-----------------------------------------------------------</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>Built with ♥ by Yuh-Hypnotized · &copy; <span id="year">2026</span></p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+  <script id="source-data" type="application/json">{"Lab1-LexicalAnalyzer-cpp":"#include <iostream>\n#include <fstream>\n#include <vector>\n#include <string>\n#include <unordered_set>\n#include <cctype>\n\nusing namespace std;\n\nstruct Token {\n    int line;\n    int column;\n    string type;\n    string value;\n};\n\nunordered_set<string> keywords = {\"if\", \"while\"};\n\nbool isLetter(char c) {\n    return isalpha(c) || c == '_';\n}\n\nbool isDigit(char c) {\n    return isdigit(c);\n}\n\nint main() {\n    ifstream in(\"lex_input.txt\");\n    ofstream out(\"lex_output.txt\");\n\n    if (!in.is_open() || !out.is_open()) {\n        cout << \"File open error\\n\";\n        return 1;\n    }\n\n    vector<string> lines;\n    string line;\n    while (getline(in, line)) {\n        lines.push_back(line);\n    }\n\n    bool inBlockComment = false;\n    int lineNum = 1;\n\n    out << \"Line\\tColumn\\tType\\t\\tValue\\n\";\n    out << \"----------------------------------------\\n\";\n\n    for (const string& s : lines) {\n        int i = 0;\n        int n = s.size();\n\n        while (i < n) {\n            char c = s[i];\n\n            /* block comment */\n            if (inBlockComment) {\n                if (c == '*' && i + 1 < n && s[i + 1] == '/') {\n                    inBlockComment = false;\n                    i += 2;\n                } else {\n                    i++;\n                }\n                continue;\n            }\n\n            /* whitespace */\n            if (isspace(c)) {\n                i++;\n                continue;\n            }\n\n            int col = i + 1;\n\n            /* line comment */\n            if (c == '/' && i + 1 < n && s[i + 1] == '/') {\n                break;\n            }\n\n            /* block comment start */\n            if (c == '/' && i + 1 < n && s[i + 1] == '*') {\n                inBlockComment = true;\n                i += 2;\n                continue;\n            }\n\n            /* identifier / keyword */\n            if (isLetter(c)) {\n                string word;\n                while (i < n && (isLetter(s[i]) || isDigit(s[i]))) {\n                    word += s[i++];\n                }\n                if (keywords.count(word))\n                    out << lineNum << \"\\t\" << col << \"\\tKEYWORD\\t\\t\" << word << \"\\n\";\n                else\n                    out << lineNum << \"\\t\" << col << \"\\tIDENTIFIER\\t\" << word << \"\\n\";\n                continue;\n            }\n\n            /* integer */\n            if (isDigit(c)) {\n                string num;\n                while (i < n && isDigit(s[i])) {\n                    num += s[i++];\n                }\n                out << lineNum << \"\\t\" << col << \"\\tINT\\t\\t\" << num << \"\\n\";\n                continue;\n            }\n\n            /* two-char operators */\n            if (i + 1 < n) {\n                string two = s.substr(i, 2);\n                if (two == \"==\") { out << lineNum << \"\\t\" << col << \"\\tEQ\\t\\t==\\n\"; i += 2; continue; }\n                if (two == \"!=\") { out << lineNum << \"\\t\" << col << \"\\tNE\\t\\t!=\\n\"; i += 2; continue; }\n                if (two == \"<=\") { out << lineNum << \"\\t\" << col << \"\\tLE\\t\\t<=\\n\"; i += 2; continue; }\n                if (two == \">=\") { out << lineNum << \"\\t\" << col << \"\\tGE\\t\\t>=\\n\"; i += 2; continue; }\n            }\n\n            /* single char */\n            switch (c) {\n                case '=': out << lineNum << \"\\t\" << col << \"\\tASSIGN\\t\\t=\\n\"; break;\n                case '+': out << lineNum << \"\\t\" << col << \"\\tPLUS\\t\\t+\\n\"; break;\n                case '-': out << lineNum << \"\\t\" << col << \"\\tMINUS\\t\\t-\\n\"; break;\n                case '*': out << lineNum << \"\\t\" << col << \"\\tMUL\\t\\t*\\n\"; break;\n                case '/': out << lineNum << \"\\t\" << col << \"\\tDIV\\t\\t/\\n\"; break;\n                case '<': out << lineNum << \"\\t\" << col << \"\\tLT\\t\\t<\\n\"; break;\n                case '>': out << lineNum << \"\\t\" << col << \"\\tGT\\t\\t>\\n\"; break;\n                case '(': out << lineNum << \"\\t\" << col << \"\\tLPAREN\\t\\t(\\n\"; break;\n                case ')': out << lineNum << \"\\t\" << col << \"\\tRPAREN\\t\\t)\\n\"; break;\n                case '{': out << lineNum << \"\\t\" << col << \"\\tLBRACE\\t\\t{\\n\"; break;\n                case '}': out << lineNum << \"\\t\" << col << \"\\tRBRACE\\t\\t}\\n\"; break;\n                case ';': out << lineNum << \"\\t\" << col << \"\\tSEMI\\t\\t;\\n\"; break;\n                case ',': out << lineNum << \"\\t\" << col << \"\\tCOMMA\\t\\t,\\n\"; break;\n                default:\n                    out << \"Lexical Error at line \" << lineNum\n                        << \", column \" << col\n                        << \": illegal character '\" << c << \"'\\n\";\n                    return 0;\n            }\n            i++;\n        }\n        lineNum++;\n    }\n\n    return 0;\n}\n","Lab2-SyntaxParser-cpp":"#include <iostream>\n#include <fstream>\n#include <vector>\n#include <map>\n#include <iomanip>\n#include <sstream>\n\nusing namespace std;\n\nvector<string> split(const string& line) {\n    vector<string> tokens;\n    string token;\n    stringstream ss(line);\n    while (ss >> token) {\n        tokens.push_back(token);\n    }\n    return tokens;\n}\n\nstring stackToString(const vector<string>& st) {\n    string res;\n    for (auto it = st.rbegin(); it != st.rend(); ++it) {\n        res += *it + \" \";\n    }\n    return res;\n}\n\nstring inputToString(const vector<string>& input, int index) {\n    string res;\n    for (int i = index; i < input.size(); ++i) {\n        res += input[i] + \" \";\n    }\n    return res;\n}\n\nint main() {\n    ifstream fin(\"syntax_input.txt\");\n    ofstream fout(\"syntax_output.txt\");\n\n    if (!fin.is_open()) {\n        cout << \"Cannot open syntax_input.txt\\n\";\n        return 1;\n    }\n\n    string line;\n    getline(fin, line);\n    vector<string> input = split(line);\n    input.push_back(\"$\");\n\n    // LL(1) parsing table\n    map<pair<string, string>, vector<string>> table;\n\n    table[{\"Program\", \"ID\"}] = {\"Stmt\"};\n    table[{\"Stmt\", \"ID\"}] = {\"ID\", \"ASSIGN\", \"Expr\", \"SEMI\"};\n    table[{\"Expr\", \"INT\"}] = {\"Term\", \"Expr'\"};\n    table[{\"Expr'\", \"PLUS\"}] = {\"PLUS\", \"Term\", \"Expr'\"};\n    table[{\"Expr'\", \"SEMI\"}] = {\"ε\"};\n    table[{\"Term\", \"INT\"}] = {\"INT\"};\n\n    vector<string> stack;\n    stack.push_back(\"$\");\n    stack.push_back(\"Program\");\n\n    int ip = 0;\n\n    fout << \"---------------------------------------------------------------\\n\";\n    fout << left << setw(30) << \"Stack\"\n         << setw(30) << \"Input\"\n         << \"Action\\n\";\n    fout << \"---------------------------------------------------------------\\n\";\n\n    while (!stack.empty()) {\n        string top = stack.back();\n        string cur = input[ip];\n\n        fout << left << setw(30) << stackToString(stack)\n             << setw(30) << inputToString(input, ip);\n\n        if (top == cur && top == \"$\") {\n            fout << \"Parsing completed successfully\\n\";\n            break;\n        }\n\n        if (top == cur) {\n            fout << \"match \" << cur << \"\\n\";\n            stack.pop_back();\n            ip++;\n        } else if (table.count({ top, cur })) {\n            vector<string> production = table[{ top, cur }];\n            fout << top << \" -> \";\n            for (auto& s : production) fout << s << \" \";\n            fout << \"\\n\";\n\n            stack.pop_back();\n            if (!(production.size() == 1 && production[0] == \"ε\")) {\n                for (auto it = production.rbegin(); it != production.rend(); ++it) {\n                    stack.push_back(*it);\n                }\n            }\n        } else {\n            fout << \"Error: unexpected token \" << cur << \"\\n\";\n            break;\n        }\n    }\n\n    fout << \"---------------------------------------------------------------\\n\";\n\n    fin.close();\n    fout.close();\n    return 0;\n}\n"}</script>
+  <script src="source-browser.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

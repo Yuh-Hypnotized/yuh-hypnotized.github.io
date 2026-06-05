@@ -1,0 +1,47 @@
+/* ===== Lexical Analyzer Test Program =====
+ * Purpose:
+ *   Test identifiers, integers, operators,
+ *   delimiters, comments, and lexical errors
+ */
+
+{
+    // variable initialization
+    _count = 10;
+    totalSum = 0;
+
+    // arithmetic expression
+    totalSum = _count * 2 + 15 / 3 - 1;
+
+    /* conditional tests */
+    if (totalSum >= 20) {
+        result = 1;
+    }
+
+    if (totalSum <  50) {
+        result = 2;
+    }
+
+    if (totalSum == 24) {
+        result = 3;
+    }
+
+    if (totalSum != 0) {
+        result = result - 1;
+    }
+
+    // loop test
+    while (result > 0)
+        result = result - 1;
+
+    /* block comment test:
+       +  -  *  /  ==  !=  <=  >=
+       (  )  {  }  ;  ,
+       should be ignored by lexer
+    */
+
+    a1, b_2, c3;
+    value = (3 + 5) * (8 - 6);
+}
+
+// lexical error test (should stop here)
+illegalVar = 100 $ 200;

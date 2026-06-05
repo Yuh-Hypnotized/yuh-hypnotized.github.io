@@ -1,0 +1,18 @@
+---------------------------------------------------------------
+Stack                         Input                         Action
+---------------------------------------------------------------
+Program $                     ID ASSIGN INT PLUS INT SEMI $ Program -> Stmt 
+Stmt $                        ID ASSIGN INT PLUS INT SEMI $ Stmt -> ID ASSIGN Expr SEMI 
+ID ASSIGN Expr SEMI $         ID ASSIGN INT PLUS INT SEMI $ match ID
+ASSIGN Expr SEMI $            ASSIGN INT PLUS INT SEMI $    match ASSIGN
+Expr SEMI $                   INT PLUS INT SEMI $           Expr -> Term Expr' 
+Term Expr' SEMI $             INT PLUS INT SEMI $           Term -> INT 
+INT Expr' SEMI $              INT PLUS INT SEMI $           match INT
+Expr' SEMI $                  PLUS INT SEMI $               Expr' -> PLUS Term Expr' 
+PLUS Term Expr' SEMI $        PLUS INT SEMI $               match PLUS
+Term Expr' SEMI $             INT SEMI $                    Term -> INT 
+INT Expr' SEMI $              INT SEMI $                    match INT
+Expr' SEMI $                  SEMI $                        Expr' -> ε 
+SEMI $                        SEMI $                        match SEMI
+$                             $                             Parsing completed successfully
+---------------------------------------------------------------

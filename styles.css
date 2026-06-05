@@ -407,6 +407,12 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.project-panel:hover {
+  border-color: rgba(96,165,250,0.32);
 }
 
 .panel-icon {
@@ -499,6 +505,18 @@ body::before {
   color: #a5b4d1;
   font-family: 'JetBrains Mono', monospace;
   letter-spacing: 0.02em;
+}
+
+.project-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.project-updated {
+  font-size: 0.68rem;
+  color: #7eb8da;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 /* --- Project Card as Link --- */

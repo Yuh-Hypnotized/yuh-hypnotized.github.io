@@ -15,3 +15,14 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+
+// =============================================
+// Clickable Category Panels
+// =============================================
+document.querySelectorAll('.project-panel[data-href]').forEach(panel => {
+  panel.addEventListener('click', (e) => {
+    // Don't navigate if user clicked an internal link or button
+    if (e.target.closest('a')) return;
+    window.location.href = panel.getAttribute('data-href');
+  });
+});

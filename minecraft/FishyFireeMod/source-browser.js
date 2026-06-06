@@ -2,67 +2,71 @@
 // Source File Browser
 // =============================================
 (function () {
-  const sourceDataEl = document.getElementById('source-data');
-  const codeContent = document.getElementById('code-content');
-  const codePre = codeContent.parentElement;
-  const codeFilename = document.getElementById('code-filename');
-  const copyBtn = document.getElementById('copy-btn');
-  const treeItems = document.querySelectorAll('.tree-file');
+  var sourceDataEl = document.getElementById('source-data');
+  var codeContent = document.getElementById('code-content');
+  var codePre = codeContent.parentElement;
+  var codeFilename = document.getElementById('code-filename');
+  var codeBadge = document.getElementById('code-badge');
+  var copyBtn = document.getElementById('copy-btn');
+  var treeItems = document.querySelectorAll('.tree-file');
 
-  let sources = {};
+  var sources = {};
   try {
     sources = JSON.parse(sourceDataEl.textContent);
   } catch (e) {
     console.error('Failed to parse source data', e);
   }
 
+  function getLanguage(key) {
+    if (key === 'README-md') return { lang: 'markdown', badge: 'Markdown' };
+    var k = key.toLowerCase();
+    if (k.endsWith('-java')) return { lang: 'java', badge: 'Java' };
+    if (k.endsWith('-json') || k.endsWith('-info')) return { lang: 'json', badge: 'JSON' };
+    if (k.endsWith('-gradle') || k.endsWith('-properties')) return { lang: 'groovy', badge: 'Gradle' };
+    return { lang: 'java', badge: 'Java' };
+  }
+
   function loadFile(key) {
-    // Update active state in tree
-    treeItems.forEach(item => item.classList.remove('active'));
-    const activeItem = document.querySelector('[data-file="' + key + '"]');
+    treeItems.forEach(function(item) { item.classList.remove('active'); });
+    var activeItem = document.querySelector('[data-file="' + key + '"]');
     if (activeItem) activeItem.classList.add('active');
 
-    // Update filename
-    codeFilename.textContent = activeItem
-      ? activeItem.textContent.trim()
-      : key + '.java';
+    codeFilename.textContent = activeItem ? activeItem.textContent.trim() : key;
 
-    // Reset copy button
+    var info = getLanguage(key);
+    codeBadge.textContent = info.badge;
+    codeContent.className = 'language-' + info.lang;
+
     copyBtn.textContent = '📋 Copy';
     copyBtn.classList.remove('copied');
 
-    // Update code content
     if (sources[key]) {
       codeContent.textContent = sources[key];
     } else {
-      codeContent.textContent = '// Source not available for this file.\n// View the raw file in the project directory.';
+      codeContent.textContent = '// Source not available.';
     }
 
-    // Remove existing line-numbers rows so Prism regenerates them
-    const oldRows = codePre.querySelector('.line-numbers-rows');
+    var oldRows = codePre.querySelector('.line-numbers-rows');
     if (oldRows) oldRows.remove();
 
-    // Re-highlight with Prism (triggers line-numbers via 'complete' hook)
     if (typeof Prism !== 'undefined') {
       Prism.highlightElement(codeContent);
     }
   }
 
-  // --- Copy Button ---
-  copyBtn.addEventListener('click', () => {
-    const text = codeContent.textContent;
+  copyBtn.addEventListener('click', function() {
+    var text = codeContent.textContent;
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(() => {
+      navigator.clipboard.writeText(text).then(function() {
         copyBtn.textContent = '✓ Copied!';
         copyBtn.classList.add('copied');
-        setTimeout(() => {
+        setTimeout(function() {
           copyBtn.textContent = '📋 Copy';
           copyBtn.classList.remove('copied');
         }, 2000);
       });
     } else {
-      // Fallback
-      const ta = document.createElement('textarea');
+      var ta = document.createElement('textarea');
       ta.value = text;
       ta.style.position = 'fixed';
       ta.style.opacity = '0';
@@ -72,21 +76,19 @@
       document.body.removeChild(ta);
       copyBtn.textContent = '✓ Copied!';
       copyBtn.classList.add('copied');
-      setTimeout(() => {
+      setTimeout(function() {
         copyBtn.textContent = '📋 Copy';
         copyBtn.classList.remove('copied');
       }, 2000);
     }
   });
 
-  // Click handler for tree files
-  treeItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const key = item.getAttribute('data-file');
+  treeItems.forEach(function(item) {
+    item.addEventListener('click', function() {
+      var key = item.getAttribute('data-file');
       if (key) loadFile(key);
     });
   });
 
-  // Load main file by default
-  loadFile('main');
+  loadFile('README-md');
 })();

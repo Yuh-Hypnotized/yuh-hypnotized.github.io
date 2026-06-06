@@ -43,6 +43,7 @@ public class ConfigHandler {
         int pHudX = config.getInt("hudPosX", "playertracker", PlayerTrackerHUD.getHudPosX(), -9999, 9999, "PlayerTracker HUD X (scaled)");
         int pHudY = config.getInt("hudPosY", "playertracker", PlayerTrackerHUD.getHudPosY(), -9999, 9999, "PlayerTracker HUD Y (scaled)");
         boolean pBg = config.getBoolean("showBackground", "playertracker", PlayerTrackerHUD.isShowBackground(), "Show background behind player tracker HUD");
+        boolean pArrow = config.getBoolean("showArrow", "playertracker", PlayerTrackerHUD.isShowArrow(), "Show direction arrow for each tracked player");
 
         PlayerTrackerHUD.setRedChoice(r);
         PlayerTrackerHUD.setGreenChoice(g);
@@ -50,6 +51,7 @@ public class ConfigHandler {
         PlayerTrackerHUD.setYellowChoice(y);
         PlayerTrackerHUD.setHudPos(pHudX, pHudY);
         PlayerTrackerHUD.setShowBackground(pBg);
+        PlayerTrackerHUD.setShowArrow(pArrow);
 
         if (config.hasChanged()) config.save();
     }
@@ -74,6 +76,7 @@ public class ConfigHandler {
         config.getCategory("playertracker").get("hudPosX").set(PlayerTrackerHUD.getHudPosX());
         config.getCategory("playertracker").get("hudPosY").set(PlayerTrackerHUD.getHudPosY());
         config.getCategory("playertracker").get("showBackground").set(PlayerTrackerHUD.isShowBackground());
+        config.getCategory("playertracker").get("showArrow").set(PlayerTrackerHUD.isShowArrow());
 
         config.save();
     }

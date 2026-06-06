@@ -22,7 +22,9 @@ public class GuiPlayerTrackerSettings extends GuiScreen {
     private GuiButton editHudButton;
     private GuiButton doneButton;
     private GuiButton backgroundToggleButton;
+    private GuiButton showArrowButton;
     private boolean backgroundEnabled;
+    private boolean showArrowEnabled;
 
     @Override
     public void initGui() {
@@ -52,10 +54,13 @@ public class GuiPlayerTrackerSettings extends GuiScreen {
         }
 
         editHudButton = new GuiButton(50, width - width/5 - 50, height/2, 100, 20, "Edit HUD Position");
-        doneButton = new GuiButton(51, centerX - 50, startY + 140, 100, 20, "Done");
+        doneButton = new GuiButton(51, centerX - 50, startY + 170, 100, 20, "Done");
 
         backgroundEnabled = PlayerTrackerHUD.isShowBackground();
         backgroundToggleButton = new GuiButton(52, centerX + 60, startY + 120, 70, 20, backgroundEnabled ? "ON" : "OFF");
+
+        showArrowEnabled = PlayerTrackerHUD.isShowArrow();
+        showArrowButton = new GuiButton(53, centerX + 60, startY + 140, 70, 20, showArrowEnabled ? "ON" : "OFF");
 
         buttonList.clear();
         for (int i = 0; i < 3; i++) {
@@ -66,6 +71,7 @@ public class GuiPlayerTrackerSettings extends GuiScreen {
         }
         buttonList.add(editHudButton);
         buttonList.add(backgroundToggleButton);
+        buttonList.add(showArrowButton);
         buttonList.add(doneButton);
     }
 
@@ -82,6 +88,7 @@ public class GuiPlayerTrackerSettings extends GuiScreen {
         drawString(fontRendererObj, "Blue team color", centerX - 140, startY + 66, 0xCCCCCC);
         drawString(fontRendererObj, "Yellow team color", centerX - 140, startY + 96, 0xCCCCCC);
         drawString(fontRendererObj, "Background", centerX - 140, startY + 120, 0xCCCCCC);
+        drawString(fontRendererObj, "Direction Arrow", centerX - 140, startY + 140, 0xCCCCCC);
 
         // draw labels and standard buttons first
         super.drawScreen(mouseX, mouseY, partialTicks);
@@ -157,6 +164,10 @@ public class GuiPlayerTrackerSettings extends GuiScreen {
             backgroundEnabled = !backgroundEnabled;
             backgroundToggleButton.displayString = backgroundEnabled ? "ON" : "OFF";
             PlayerTrackerHUD.setShowBackground(backgroundEnabled);
+        } else if (id == 53) {
+            showArrowEnabled = !showArrowEnabled;
+            showArrowButton.displayString = showArrowEnabled ? "ON" : "OFF";
+            PlayerTrackerHUD.setShowArrow(showArrowEnabled);
         } else if (id == 50) {
             mc.displayGuiScreen(new com.fishyfire.fishyfiremod.gui.GuiEditPlayerTrackerPosition());
         } else if (id == 51) {

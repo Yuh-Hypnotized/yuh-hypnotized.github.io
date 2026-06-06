@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.gui.Gui;
+import org.lwjgl.opengl.GL11;
 
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class PlayerTrackerHUD {
     private static int hudPosY = -1;
     private static volatile boolean openSettingsRequested = false;
     private static boolean showBackground = false;
+    private static boolean showArrow = true;
 
     public static boolean isEnabled() { return enabled; }
     public static void toggle() { enabled = !enabled; }
@@ -47,6 +49,9 @@ public class PlayerTrackerHUD {
 
     public static boolean isShowBackground() { return showBackground; }
     public static void setShowBackground(boolean v) { showBackground = v; }
+
+    public static boolean isShowArrow() { return showArrow; }
+    public static void setShowArrow(boolean v) { showArrow = v; }
 
     public static int getRedChoice() { return redChoice; }
     public static int getGreenChoice() { return greenChoice; }
@@ -132,7 +137,8 @@ public class PlayerTrackerHUD {
 
         if (nearestRed != null) {
             int col = mapChoiceToRenderColor(RED_OPTS, redChoice);
-            drawPlayerLine(fr, nearestRed, dRed, x, drawY, col);
+            double angle = getHorizontalAngle(nearestRed);
+            drawPlayerLine(fr, nearestRed, dRed, x, drawY, col, angle);
         } else {
             String label = "<Red>";
             int col = mapChoiceToRenderColor(RED_OPTS, redChoice);
@@ -145,7 +151,8 @@ public class PlayerTrackerHUD {
 
         if (nearestGreen != null) {
             int col = mapChoiceToRenderColor(GREEN_OPTS, greenChoice);
-            drawPlayerLine(fr, nearestGreen, dGreen, x, drawY, col);
+            double angle = getHorizontalAngle(nearestGreen);
+            drawPlayerLine(fr, nearestGreen, dGreen, x, drawY, col, angle);
         } else {
             String label = "<Green>";
             int col = mapChoiceToRenderColor(GREEN_OPTS, greenChoice);
@@ -157,7 +164,8 @@ public class PlayerTrackerHUD {
 
         if (nearestBlue != null) {
             int col = mapChoiceToRenderColor(BLUE_OPTS, blueChoice);
-            drawPlayerLine(fr, nearestBlue, dBlue, x, drawY, col);
+            double angle = getHorizontalAngle(nearestBlue);
+            drawPlayerLine(fr, nearestBlue, dBlue, x, drawY, col, angle);
         } else {
             String label = "<Blue>";
             int col = mapChoiceToRenderColor(BLUE_OPTS, blueChoice);
@@ -169,7 +177,8 @@ public class PlayerTrackerHUD {
 
         if (nearestYellow != null) {
             int col = mapChoiceToRenderColor(YELLOW_OPTS, yellowChoice);
-            drawPlayerLine(fr, nearestYellow, dYellow, x, drawY, col);
+            double angle = getHorizontalAngle(nearestYellow);
+            drawPlayerLine(fr, nearestYellow, dYellow, x, drawY, col, angle);
         } else {
             String label = "<Yellow>";
             int col = mapChoiceToRenderColor(YELLOW_OPTS, yellowChoice);
@@ -179,7 +188,7 @@ public class PlayerTrackerHUD {
         }
     }
 
-    private static void drawPlayerLine(FontRenderer fr, EntityPlayer p, double distSq, int x, int y, int color) {
+    private static void drawPlayerLine(FontRenderer fr, EntityPlayer p, double distSq, int x, int y, int color, double arrowAngle) {
         String name = p.getDisplayName().getUnformattedText();
         double dist = Math.sqrt(distSq);
         double yDiff = p.posY - Minecraft.getMinecraft().thePlayer.posY;
@@ -187,12 +196,15 @@ public class PlayerTrackerHUD {
         boolean positive = yDiff >= 0.0;
         String sign = positive ? "+" : "-";
         String mag = String.format("%.1f", Math.abs(yDiff)) + "m";
+
+        int curX = x;
+
         // draw name in team color
-        fr.drawStringWithShadow(name, x, y, color);
+        fr.drawStringWithShadow(name, curX, y, color);
         int nameW = fr.getStringWidth(name);
 
         // draw distance (white), separator, then vertical diff with colored sign and gray magnitude
-        int curX = x + nameW;
+        curX += nameW;
         String distOut = " " + distStr;
         fr.drawStringWithShadow(distOut, curX, y, 0xFFFFFF);
         curX += fr.getStringWidth(distOut);
@@ -208,9 +220,92 @@ public class PlayerTrackerHUD {
 
         // magnitude in light gray §7 -> 0xAAAAAA
         fr.drawStringWithShadow(mag, curX, y, 0xAAAAAA);
+        curX += fr.getStringWidth(mag);
+
+        // draw direction arrow (V shape) at the end of the line
+        if (showArrow) {
+            int arrowSize = 5;
+            int arrowCenterY = y + fr.FONT_HEIGHT / 2;
+            int arrowCenterX = curX + arrowSize + 1;
+            drawDirectionArrow(arrowCenterX, arrowCenterY, arrowSize, arrowAngle, color);
+        }
     }
 
     // (Removed older helper heuristics to simplify code — username-based color extraction is used instead.)
+
+    /**
+     * Calculate the horizontal angle from the local player to the target,
+     * relative to the player's view direction (yaw).
+     * @return angle in degrees: 0 = straight ahead, + = right, - = left, 180/ -180 = behind
+     */
+    private static double getHorizontalAngle(EntityPlayer target) {
+        Minecraft mc = Minecraft.getMinecraft();
+        if (mc.thePlayer == null) return 0;
+
+        double dx = target.posX - mc.thePlayer.posX;
+        double dz = target.posZ - mc.thePlayer.posZ;
+
+        // Player look direction in XZ plane
+        double yawRad = Math.toRadians(mc.thePlayer.rotationYaw);
+        double fx = -Math.sin(yawRad);  // forward X
+        double fz =  Math.cos(yawRad);  // forward Z
+        // Right vector = forward rotated -90° in XZ plane
+        double rx = -Math.cos(yawRad);  // right X
+        double rz = -Math.sin(yawRad);  // right Z
+
+        // Project target direction onto forward and right axes
+        double forwardDist = dx * fx + dz * fz;
+        double rightDist   = dx * rx + dz * rz;
+
+        // atan2(right, forward): 0° = ahead, +90° = right, -90° = left
+        return Math.toDegrees(Math.atan2(rightDist, forwardDist));
+    }
+
+    /**
+     * Draw a "V" shaped direction arrow using GL lines.
+     * The two lines are two sides of an equilateral triangle (60° tip angle),
+     * with the triangle's centroid pinned at (cx, cy).
+     * The arrow rotates around its own center like a compass needle.
+     * @param cx center X (screen coord) — rotation pivot
+     * @param cy center Y (screen coord) — rotation pivot
+     * @param arrowLen distance from centroid to each vertex
+     * @param angleDeg direction angle in degrees (0=up on screen, +90=right)
+     * @param color RGB color
+     */
+    private static void drawDirectionArrow(int cx, int cy, int arrowLen, double angleDeg, int color) {
+        float r = ((color >> 16) & 0xFF) / 255f;
+        float g = ((color >> 8) & 0xFF) / 255f;
+        float b = (color & 0xFF) / 255f;
+
+        double rad = Math.toRadians(angleDeg);
+        double step = Math.toRadians(120); // vertices spaced 120° apart = equilateral triangle
+
+        // Three vertices of an equilateral triangle, centroid at (cx, cy)
+        double tipX = cx + Math.sin(rad) * arrowLen;
+        double tipY = cy - Math.cos(rad) * arrowLen;
+
+        double lwX = cx + Math.sin(rad + step) * arrowLen;
+        double lwY = cy - Math.cos(rad + step) * arrowLen;
+
+        double rwX = cx + Math.sin(rad - step) * arrowLen;
+        double rwY = cy - Math.cos(rad - step) * arrowLen;
+
+        GL11.glPushAttrib(GL11.GL_ENABLE_BIT | GL11.GL_LINE_BIT | GL11.GL_CURRENT_BIT);
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        GL11.glLineWidth(1.8f);
+        GL11.glColor4f(r, g, b, 1.0f);
+
+        GL11.glBegin(GL11.GL_LINES);
+        // Two sides of the equilateral triangle: tip→left, tip→right
+        GL11.glVertex2d(tipX, tipY);
+        GL11.glVertex2d(lwX, lwY);
+        GL11.glVertex2d(tipX, tipY);
+        GL11.glVertex2d(rwX, rwY);
+        GL11.glEnd();
+
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
+        GL11.glPopAttrib();
+    }
 
     // Attempt to find the real username inside the formatted display string and return the color
     // that applies to the first character of the username (or the most recent non-empty color before it).

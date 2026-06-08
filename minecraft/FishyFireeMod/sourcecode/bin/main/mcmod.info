@@ -1,0 +1,16 @@
+[
+{
+  "modid": "fishyfireemod",
+  "name": "FishyFiree Mod",
+  "description": "I hate modding.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["fishyfiree"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -21,10 +21,13 @@
   function getLanguage(key) {
     if (key === 'README-md') return { lang: 'markdown', badge: 'Markdown' };
     var k = key.toLowerCase();
-    if (k.endsWith('-ui')) return { lang: 'markup', badge: 'XML/UI' };
-    if (k.endsWith('-h') || k.endsWith('-cpp') || k.startsWith('main-') || k.startsWith('student') || k.startsWith('classes') || k.startsWith('mainwindow')) return { lang: 'cpp', badge: 'C++' };
-    if (k.endsWith('-pro') || k.endsWith('-pro-user')) return { lang: 'makefile', badge: 'Makefile' };
-    return { lang: 'cpp', badge: 'C++' };
+    if (k.endsWith('-md')) return { lang: 'markdown', badge: 'Markdown' };
+    if (k.endsWith('-py') || k.endsWith('-spec')) return { lang: 'python', badge: 'Python' };
+    if (k.endsWith('-toml')) return { lang: 'ini', badge: 'TOML' };
+    if (k.endsWith('-iss')) return { lang: 'ini', badge: 'Inno Setup' };
+    if (k.endsWith('-svg')) return { lang: 'markup', badge: 'SVG' };
+    if (k.endsWith('-txt')) return { lang: 'plain', badge: 'Text' };
+    return { lang: 'python', badge: 'Python' };
   }
 
   // Render relative links/images inside README against the sourcecode/ folder
@@ -50,6 +53,7 @@
     var info = getLanguage(key);
     codeContent.className = 'language-' + info.lang;
 
+    // Remove existing line-numbers rows so Prism regenerates them
     var oldRows = codePre.querySelector('.line-numbers-rows');
     if (oldRows) oldRows.remove();
 
@@ -77,7 +81,7 @@
     copyBtn.textContent = '📋 Copy';
     copyBtn.classList.remove('copied');
 
-    // Update code content
+    // Update code content (always keep raw source for copy)
     if (sources[key]) {
       codeContent.textContent = sources[key];
     } else {
@@ -131,6 +135,6 @@
     });
   });
 
-  // Load README by default
+  // Load README by default (rendered)
   loadFile('README-md');
 })();

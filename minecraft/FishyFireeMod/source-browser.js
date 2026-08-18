@@ -8,6 +8,7 @@
   var codeFilename = document.getElementById('code-filename');
   var codeBadge = document.getElementById('code-badge');
   var copyBtn = document.getElementById('copy-btn');
+  var mdRender = document.getElementById('md-render');
   var treeItems = document.querySelectorAll('.tree-file');
 
   var sources = {};
@@ -26,6 +27,37 @@
     return { lang: 'java', badge: 'Java' };
   }
 
+  // Render relative links/images inside README against the sourcecode/ folder
+  function fixRelativePaths(html) {
+    return html.replace(/(src|href)="(?!(?:https?:|#|mailto:|data:))/g, '$1="sourcecode/');
+  }
+
+  function showMarkdown(text) {
+    if (typeof marked !== 'undefined') {
+      mdRender.innerHTML = fixRelativePaths(marked.parse(text));
+      codePre.hidden = true;
+      mdRender.hidden = false;
+    } else {
+      // marked failed to load — fall back to plain code view
+      codePre.hidden = false;
+      mdRender.hidden = true;
+    }
+  }
+
+  function showCode(key) {
+    mdRender.hidden = true;
+    codePre.hidden = false;
+    var info = getLanguage(key);
+    codeContent.className = 'language-' + info.lang;
+
+    var oldRows = codePre.querySelector('.line-numbers-rows');
+    if (oldRows) oldRows.remove();
+
+    if (typeof Prism !== 'undefined') {
+      Prism.highlightElement(codeContent);
+    }
+  }
+
   function loadFile(key) {
     treeItems.forEach(function(item) { item.classList.remove('active'); });
     var activeItem = document.querySelector('[data-file="' + key + '"]');
@@ -35,7 +67,6 @@
 
     var info = getLanguage(key);
     codeBadge.textContent = info.badge;
-    codeContent.className = 'language-' + info.lang;
 
     copyBtn.textContent = '📋 Copy';
     copyBtn.classList.remove('copied');
@@ -46,11 +77,11 @@
       codeContent.textContent = '// Source not available.';
     }
 
-    var oldRows = codePre.querySelector('.line-numbers-rows');
-    if (oldRows) oldRows.remove();
-
-    if (typeof Prism !== 'undefined') {
-      Prism.highlightElement(codeContent);
+    // Markdown files render as formatted README; everything else is code
+    if (info.lang === 'markdown') {
+      showMarkdown(codeContent.textContent);
+    } else {
+      showCode(key);
     }
   }
 

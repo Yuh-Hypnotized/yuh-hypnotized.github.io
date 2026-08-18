@@ -3,6 +3,11 @@
 bin/
 build/
 
-# Agent config (local only)
+# Local agent files (never commit)
 CLAUDE.md
+CONTEXT.md
 docs/
+
+# DSH tool artifacts
+.dsh-notes/
+.dsh-vision-router/

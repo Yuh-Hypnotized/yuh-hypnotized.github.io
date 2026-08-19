@@ -26,7 +26,7 @@ public final class PluginMain extends JavaPlugin {
     private PluginMain() {
         super(new JvmPluginDescriptionBuilder("com.example.point24", "0.1.0")
                 .name("24point")
-                .author("Yuh_Hypnotized")
+                .author("FishyFiree")
 
                 .build());
     }

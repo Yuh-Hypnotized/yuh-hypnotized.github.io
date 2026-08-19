@@ -24,7 +24,7 @@ public final class AntiRecall extends JavaPlugin {
     private AntiRecall() {
         super(new JvmPluginDescriptionBuilder("com.example.antiRecall", "0.1.0")
                 .name("antiRecall")
-                .author("Yuh_Hypnotized")
+                .author("FishyFiree")
 
                 .build());
     }

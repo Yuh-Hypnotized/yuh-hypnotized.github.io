@@ -3,8 +3,8 @@
 
 #define MyAppName "VideoRefiner"
 #define MyAppVersion "1.0.0"
-#define MyAppPublisher "Yuh-Hypnotized"
-#define MyAppURL "https://github.com/Yuh-Hypnotized/VideoRefiner"
+#define MyAppPublisher "FishyFiree"
+#define MyAppURL "https://github.com/FishyFiree/VideoRefiner"
 #define MyAppExeName "VideoRefiner.exe"
 
 [Setup]

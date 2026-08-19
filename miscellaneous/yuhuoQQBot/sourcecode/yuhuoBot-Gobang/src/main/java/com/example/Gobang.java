@@ -30,7 +30,7 @@ public final class Gobang extends JavaPlugin {
     private Gobang() {
         super(new JvmPluginDescriptionBuilder("com.example.gobang", "0.1.0")
                 .name("Gobang")
-                .author("Yuh_Hypnotized")
+                .author("FishyFiree")
 
                 .build());
     }

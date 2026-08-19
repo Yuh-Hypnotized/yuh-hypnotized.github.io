@@ -28,7 +28,7 @@ public final class YuhuoBotJrrp extends JavaPlugin {
     private YuhuoBotJrrp() {
         super(new JvmPluginDescriptionBuilder("com.example.yuhuoBot-jrrp", "0.1.0")
                 .name("yuhuoBot-jrrp")
-                .author("Yuh_Hypnotized")
+                .author("FishyFiree")
 
                 .build());
     }

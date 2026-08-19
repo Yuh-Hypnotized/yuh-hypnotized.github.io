@@ -27,7 +27,7 @@ public final class YuhuoBot extends JavaPlugin {
     private YuhuoBot() {
         super(new JvmPluginDescriptionBuilder("com.example.yuhuoBot", "0.1.0")
                 .name("yuhuoBot")
-                .author("Yuh_Hypnotized")
+                .author("FishyFiree")
 
                 .build());
     }

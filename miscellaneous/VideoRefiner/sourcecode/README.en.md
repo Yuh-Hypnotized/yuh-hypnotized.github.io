@@ -74,7 +74,7 @@ CUDA runtime), and there is no upscaling — all on the roadmap.
 
 ### Option 1: Installer (recommended)
 
-Download **`VideoRefiner-setup.exe`** (~1.7GB, single file) from [GitHub Releases](https://github.com/Yuh-Hypnotized/VideoRefiner/releases),
+Download **`VideoRefiner-setup.exe`** (~1.7GB, single file) from [GitHub Releases](https://github.com/FishyFiree/VideoRefiner/releases),
 run it (no admin rights needed — installs to the current user's folder), then launch `VideoRefiner` from the
 desktop / Start menu.
 
@@ -88,7 +88,7 @@ Download `VideoRefiner-windows.zip`, unzip it and run `VideoRefiner.exe` (no ins
 ### Option 2: Run from source
 
 ```bash
-git clone https://github.com/Yuh-Hypnotized/VideoRefiner.git
+git clone https://github.com/FishyFiree/VideoRefiner.git
 cd VideoRefiner
 pip install -e .
 python -m videorefiner.gui        # launch GUI
@@ -156,4 +156,4 @@ python build.py --installer  # also compile the Inno Setup installer (VideoRefin
 - Performance roadmap: NVENC hardware encoding, TensorRT engine, batch optimization
 - No resume for interrupted jobs yet
 
-Questions or suggestions? Open an [Issue](https://github.com/Yuh-Hypnotized/VideoRefiner/issues)!
+Questions or suggestions? Open an [Issue](https://github.com/FishyFiree/VideoRefiner/issues)!

@@ -57,7 +57,7 @@ VIDEO_EXTS = {
 QUALITY_NAMES = {"均衡": "balanced", "高质量": "high", "小体积": "small"}
 CODEC_NAMES = {"H.265（推荐）": "h265", "H.264": "h264"}
 
-PROJECT_URL = "https://github.com/Yuh-Hypnotized/VideoRefiner"
+PROJECT_URL = "https://github.com/FishyFiree/VideoRefiner"
 
 
 def _fmt_seconds(sec: float) -> str:

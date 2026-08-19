@@ -53,7 +53,7 @@ All settings persist in `config/fishyfireemod.cfg` and can be modified either th
 ## Building from source
 
 ```bash
-git clone https://github.com/Yuh-Hypnotized/FishyFireeMod.git
+git clone https://github.com/FishyFiree/FishyFireeMod.git
 cd FishyFireeMod
 ./gradlew build
 ```

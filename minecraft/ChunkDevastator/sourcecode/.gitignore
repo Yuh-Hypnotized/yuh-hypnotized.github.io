@@ -1,0 +1,25 @@
+# Gradle
+.gradle/
+build/
+# IDE
+.idea/
+*.iml
+.vscode/
+# OS
+.DS_Store
+Thumbs.db
+# runtime
+run/
+# local toolchain (JDK 25 + Gradle, downloaded for offline-free builds)
+.tools/
+# crash logs from in-game testing
+in-game logs/
+# agent tooling & planning artifacts (kept local only)
+AGENTS.md
+docs/
+.scratch/
+.dsh-notes/
+# dev run logs
+logs/
+# agent-produced design spec (kept local only)
+SPEC.md

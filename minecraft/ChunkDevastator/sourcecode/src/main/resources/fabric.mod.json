@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "chunkdevastator",
+  "version": "${version}",
+  "name": "ChunkDevastator",
+  "description": "Take any damage and lose the chunk you stand on: a 5-second countdown warning, then the whole 16x16 column is deleted - except end portal frames.",
+  "authors": [
+    "FishyFiree"
+  ],
+  "contact": {
+    "homepage": "https://github.com/FishyFiree/ChunkDevastator"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.chunkdevastator.ChunkDevastator"
+    ],
+    "client": [
+      "com.chunkdevastator.client.ChunkDevastatorClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
